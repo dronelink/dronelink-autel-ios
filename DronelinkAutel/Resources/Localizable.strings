@@ -41,6 +41,8 @@
 "AutelDroneSession.telemetry.unavailable" = "Telemetry Unavailable";
 "AutelDroneSession.createControlSession.execution.engine.unsupported" = "Unsupported execution engine: %@";
 
+"AutelDroneAdapter.stopCompassCalibration.unavailable" = "Unable to stop compass calibration";
+
 "AutelDroneSession+CameraCommand.stop.capture.error" = "Camera still capturing";
 "AutelDroneSession+CameraCommand.start.shoot.photo.no.file" = "Media File Not Created";
 
@@ -89,3 +91,15 @@
 "AUTELMainControllerNoFlyStatus.value.4" = "Entering No-Fly Zone";
 "AUTELMainControllerNoFlyStatus.value.5" = "Entering No-Fly Zone";
 "AUTELMainControllerNoFlyStatus.value.255" = "Unknown";
+
+"AUTELCompassCalibrationStatus.title" = "Compass Calibration";
+"AUTELCompassCalibrationStatus.value.0" = "None";
+"AUTELCompassCalibrationStatus.value.1" = "Rotate 360 Horizontally";
+"AUTELCompassCalibrationStatus.value.2" = "Rotate 360 Vertically";
+"AUTELCompassCalibrationStatus.value.3" = "Step 3";
+"AUTELCompassCalibrationStatus.value.4" = "Calculating";
+"AUTELCompassCalibrationStatus.value.5" = "Finished";
+"AUTELCompassCalibrationStatus.value.6" = "Failed";
+"AUTELCompassCalibrationStatus.value.7" = "Failed - No GPS";
+"AUTELCompassCalibrationStatus.value.8" = "Timeout";
+"AUTELCompassCalibrationStatus.value.255" = "Unknown";

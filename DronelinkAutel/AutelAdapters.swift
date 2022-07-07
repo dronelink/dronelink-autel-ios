@@ -129,12 +129,28 @@ public class AutelDroneAdapter: DroneAdapter {
         drone.mainController.startTakeoff(completion: finished)
     }
     
-    public func startGoHome(finished: CommandFinished?) {
+    public func startReturnHome(finished: CommandFinished?) {
         drone.mainController.startGoHome(completion: finished)
     }
     
-    public func startLanding(finished: CommandFinished?) {
+    public func stopReturnHome(finished: CommandFinished?) {
+        drone.mainController.cancelGoHome(completion: finished)
+    }
+    
+    public func startLand(finished: CommandFinished?) {
         drone.mainController.startLanding(completion: finished)
+    }
+    
+    public func stopLand(finished: CommandFinished?) {
+        drone.mainController.cancelLanding(comletion: finished)
+    }
+    
+    public func startCompassCalibration(finished: CommandFinished?) {
+        drone.mainController.compass?.startCalibration(completion: finished)
+    }
+    
+    public func stopCompassCalibration(finished: CommandFinished?) {
+        finished?("AutelDroneAdapter.stopCompassCalibration.unavailable".localized)
     }
     
     public func enumElements(parameter: String) -> [EnumElement]? {

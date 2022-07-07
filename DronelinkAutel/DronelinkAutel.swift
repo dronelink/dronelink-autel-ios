@@ -729,3 +729,38 @@ extension AUTELMainControllerNoFlyStatus {
         return Kernel.Message(title: "AUTELMainControllerNoFlyStatus.title".localized, details: "AUTELMainControllerNoFlyStatus.value.\(rawValue)".localized, level: level)
     }
 }
+
+extension AUTELCompassCalibrationStatus {
+    var message: Kernel.Message? {
+        var level: Kernel.MessageLevel?
+        
+        switch self {
+        case .none:
+            return nil
+            
+        case .step1, .step2, .step3:
+            level = .warning
+            break
+            
+        case .calculating:
+            level = .warning
+            break
+            
+        case .succeeded:
+            level = .info
+            break
+            
+        case .failed, .failedNoGPS, .timeout:
+            level = .error
+            break
+            
+        case .unknown:
+            return nil
+            
+        @unknown default:
+            return nil
+        }
+        
+        return Kernel.Message(title: "AUTELCompassCalibrationStatus.title".localized, details: "AUTELCompassCalibrationStatus.value.\(rawValue)".localized, level: level)
+    }
+}

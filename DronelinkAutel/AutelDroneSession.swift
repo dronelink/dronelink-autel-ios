@@ -33,8 +33,6 @@ public class AutelDroneSession: NSObject {
     private let mainControllerSerialQueue = DispatchQueue(label: "AutelDroneSession+mainControllerState")
     private var _mainControllerState: DatedValue<AUTELMCSystemState>?
     private var _mainControllerLowBatteryThreshold: Double?
-    private var _mainControllerMaxFlightHeight: Double?
-    private var _mainControllerGoHomeDefaultAltitude: Double?
     
     private let batterySerialQueue = DispatchQueue(label: "AutelDroneSession+batteryState")
     private var _batteryState: DatedValue<AUTELBatteryState>?
@@ -96,18 +94,6 @@ public class AutelDroneSession: NSObject {
         mainController.getLowBatteryWarning { [weak self] (value, error) in
             if error == nil {
                 self?._mainControllerLowBatteryThreshold = Double(value) / 100
-            }
-        }
-        
-        mainController.flightLimitation?.getMaxFlightHeight { [weak self] (value, error) in
-            if error == nil {
-                self?._mainControllerMaxFlightHeight = Double(value) / 100
-            }
-        }
-        
-        mainController.getGoHomeDefaultAltitude { [weak self] (value, error) in
-            if error == nil {
-                self?._mainControllerGoHomeDefaultAltitude = Double(value) / 100
             }
         }
         
@@ -596,9 +582,12 @@ extension AutelDroneSession: DroneStateAdapter {
         
         return messages
     }
-    
     public var mode: String? { mainControllerState?.value.mainModeString }
     public var isFlying: Bool { mainControllerState?.value.isFlying ?? false }
+    public var isReturningHome: Bool { mainControllerState?.value.isAutoFlyingToHomePoint ?? false }
+    public var isLanding: Bool { mainControllerState?.value.flightMode == .AutelMCFlightModeLanding }
+    public var isCompassCalibrating: Bool { adapter.drone.mainController.compass?.isCalibrating ?? false }
+    public var compassCalibrationMessage: Kernel.Message? { adapter.drone.mainController.compass?.calibrationStatus.message }
     public var location: CLLocation? { mainControllerState?.value.location }
     public var homeLocation: CLLocation? { mainControllerState?.value.isHomeInvalid ?? true ? nil : mainControllerState?.value.homeLocation.asLocation }
     public var lastKnownGroundLocation: CLLocation? { _lastKnownGroundLocation }
@@ -609,8 +598,8 @@ extension AutelDroneSession: DroneStateAdapter {
     public var verticalSpeed: Double { mainControllerState?.value.verticalSpeed ?? 0 }
     public var altitude: Double { Double(mainControllerState?.value.altitude ?? 0) }
     public var ultrasonicAltitude: Double? { mainControllerState?.value.isUltrasonicWorking ?? false ? Double(mainControllerState?.value.ultrasonicHeight ?? 0) : nil }
-    public var returnHomeAltitude: Double? { _mainControllerGoHomeDefaultAltitude }
-    public var maxAltitude: Double? { _mainControllerMaxFlightHeight }
+    public var returnHomeAltitude: Double? { nil }
+    public var maxAltitude: Double? { nil }
     public var batteryPercent: Double? {
         if let remainPowerPercent = batteryState?.value.remainPowerPercent {
             return Double(remainPowerPercent) / 100
