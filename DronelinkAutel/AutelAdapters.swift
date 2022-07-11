@@ -235,6 +235,9 @@ public class AutelCameraAdapter: CameraAdapter {
         case "CameraMode":
             range = camera.parameters?.supportedCameraModeRange().map { AUTELCameraWorkMode(rawValue: $0.uint8Value)?.kernelValue.rawValue }
             break
+        case "CameraPhotoFileFormat":
+            range = camera.parameters.supportedCameraPhotoFileFormatRange().map { AUTELCameraPhotoFileFormat(rawValue: $0.uint8Value)?.kernelValue.rawValue }
+            break
         case "CameraPhotoMode":
             range = [
                 Kernel.CameraPhotoMode.single.rawValue,
@@ -248,6 +251,12 @@ public class AutelCameraAdapter: CameraAdapter {
             break
         case "CameraStorageLocation":
             range = [Kernel.CameraStorageLocation.sdCard.rawValue]
+            break
+        case "CameraVideoFileFormat":
+            range = camera.parameters.supportedCameraVideoFileFormatRange().map  { AUTELCameraVideoFileFormat(rawValue: $0.uint8Value)?.kernelValue.rawValue }
+            break
+        case "CameraWhiteBalancePreset":
+            range = camera.parameters.supportedCameraWhiteBalanceRange().map  { AUTELCameraWhiteBalance(rawValue: $0.uint8Value)?.kernelValue.rawValue }
             break
         default:
             return nil
@@ -347,13 +356,14 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public var exposureMode: Kernel.CameraExposureMode { _exposureMode?.kernelValue ?? .unknown }
     public var exposureCompensation: Kernel.CameraExposureCompensation { exposureParameters?.exposureCompensation.kernelValue ?? .unknown }
     public var iso: Kernel.CameraISO { exposureParameters?.iso.kernelValue ?? .unknown }
-    public var isoSensitivity: Int? {
+    public var isoActual: Int? {
         //FIXME
 //        guard let exposureSettingsISO = exposureSettings?.ISO else { return nil }
 //        return Int(exposureSettingsISO)
         nil
     }
     public var shutterSpeed: Kernel.CameraShutterSpeed { exposureParameters?.shutterSpeed.kernelValue ?? .unknown }
+    public var shutterSpeedActual: Kernel.CameraShutterSpeed? { shutterSpeed }
     public var aperture: Kernel.CameraAperture { exposureParameters?.aperture.kernelValue ?? .unknown }
     public var whiteBalancePreset: Kernel.CameraWhiteBalancePreset {
         //FIXME whiteBalanceValue?.preset.kernelValue ?? .unknown

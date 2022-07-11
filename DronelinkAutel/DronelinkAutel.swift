@@ -137,6 +137,34 @@ extension Kernel.CameraPhotoMode {
     }
 }
 
+extension Kernel.CameraPhotoFileFormat {
+    var autelValue: AUTELCameraPhotoFileFormat {
+        switch self {
+        case .raw: return .DNG
+        case .jpeg: return .JPG
+        case .rawAndJpeg: return .jpgAndDNG
+        case .tiff14bit: return .unknown
+        case .radiometricJpeg: return .RJPEG
+        case .tiff14bitLinearLowTempResolution: return .unknown
+        case .tiff14bitLinearHighTempResolution: return .unknown
+        case .unknown: return .unknown
+        }
+    }
+}
+
+extension AUTELCameraPhotoFileFormat {
+    var kernelValue: Kernel.CameraPhotoFileFormat {
+        switch self {
+        case .DNG: return .raw
+        case .JPG: return .jpeg
+        case .jpgAndDNG: return .rawAndJpeg
+        case .RJPEG: return .radiometricJpeg
+        case .rjpegAndTIFF: return .unknown
+        case .unknown: return .unknown
+        }
+    }
+}
+
 extension Kernel.PhotoIntervalCameraCommand {
     var photoIntervalAutelValue: AUTELCameraPhotoTimeLapseInterval {
         switch photoInterval {
@@ -356,6 +384,7 @@ extension AUTELCameraShutterSpeed {
 extension Kernel.CameraShutterSpeed {
     var autelValue: AUTELCameraShutterSpeed {
         switch self {
+        case .auto: return .speedUnknown
         case ._1_8000: return .speed1_8000
         case ._1_6400: return .speedUnknown
         case ._1_6000: return .speed1_6000
@@ -499,6 +528,43 @@ extension Kernel.CameraAperture {
         case .f19: return .unknown
         case .f20: return .unknown
         case .f22: return .unknown
+        case .unknown: return .unknown
+        }
+    }
+}
+
+extension Kernel.CameraVideoFileFormat {
+    var autelValue: AUTELCameraVideoFileFormat {
+        switch self {
+        case .mov: return .MOV
+        case .mp4: return .MP4
+        case .tiffSequence: return .TIFF
+        case .seq: return .unknown
+        case .unknown: return .unknown
+        }
+    }
+}
+
+extension AUTELCameraVideoFileFormat {
+    var kernelValue: Kernel.CameraVideoFileFormat {
+        switch self {
+        case .MOV: return .mov
+        case .MP4: return .mp4
+        case .TIFF: return .tiffSequence
+        case .unknown: return .unknown
+        }
+    }
+}
+
+extension AUTELCameraWhiteBalance {
+    var kernelValue: Kernel.CameraWhiteBalancePreset {
+        switch self {
+        case .auto: return .auto
+        case .sunny: return .sunny
+        case .cloudy: return .cloudy
+        case .incandescent: return .indoorIncandescent
+        case .fluorescent: return .indoorFluorescent
+        case .custom: return .custom
         case .unknown: return .unknown
         }
     }
