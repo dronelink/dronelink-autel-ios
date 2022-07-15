@@ -629,7 +629,7 @@ extension AUTELMCSystemState {
         }
         
         if isCompassError {
-            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isCompassError.title".localized, level: .error))
+            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isCompassError.title".localized, level: .warning))
         }
         
         if isIMUPreheating {
@@ -637,7 +637,7 @@ extension AUTELMCSystemState {
         }
         
         if isIMUOverheated {
-            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUOverheated.title".localized, level: .error))
+            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUOverheated.title".localized, level: .warning))
         }
         
         if isUnknowBattery {
@@ -645,7 +645,7 @@ extension AUTELMCSystemState {
         }
         
         if isBatteryOverheated {
-            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryOverheated.title".localized, level: .error))
+            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryOverheated.title".localized, level: .warning))
         }
         
         if isBatteryVoltageDiff {
@@ -653,7 +653,7 @@ extension AUTELMCSystemState {
         }
         
         if isBatteryLowTemperature {
-            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryLowTemperature.title".localized, level: .error))
+            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryLowTemperature.title".localized, level: .warning))
         }
         
         if isReachMaxRange {
@@ -669,11 +669,11 @@ extension AUTELMCSystemState {
         }
         
         if location == nil {
-            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title".localized, details: "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details".localized, level: .warning))
+            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title".localized, details: "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details".localized, level: .danger))
         }
         
         if isHomeInvalid {
-            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title".localized, level: .warning))
+            messages.append(Kernel.Message(title: "DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title".localized, level: .danger))
         }
         
         return messages
@@ -779,13 +779,12 @@ extension AUTELMainControllerNoFlyStatus {
             
         case .DroneApproachingNoFlyZone,
             .DroneUnderLimitFlyZone,
-            .DroneReachMaxFlyingHeightInLimitFlyZone:
+            .DroneReachMaxFlyingHeightInLimitFlyZone,
+            .DroneInNoFlyZone,
+            .DroneInENNoFlyZone:
             level = .warning
             break
             
-        case .DroneInNoFlyZone,
-            .DroneInENNoFlyZone:
-            level = .danger
             break
             
         @unknown default:
@@ -808,7 +807,7 @@ extension AUTELCompassCalibrationStatus {
             level = .warning
             break
             
-        case .calculating:
+        case .calculating, .timeout:
             level = .warning
             break
             
@@ -816,7 +815,7 @@ extension AUTELCompassCalibrationStatus {
             level = .info
             break
             
-        case .failed, .failedNoGPS, .timeout:
+        case .failed, .failedNoGPS:
             level = .error
             break
             
