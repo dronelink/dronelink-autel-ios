@@ -376,9 +376,7 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
         nil
     }
     public var lensDetails: String? { nil }
-    public var aspectRatio: Kernel.CameraPhotoAspectRatio {
-        ._16x9 //FIXME
-    }
+    public var aspectRatio: Kernel.CameraPhotoAspectRatio { mode == .photo ? ._3x2 : ._16x9 }
 }
 
 public class AutelGimbalAdapter: GimbalAdapter {

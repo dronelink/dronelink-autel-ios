@@ -405,7 +405,7 @@ extension AutelDroneSession: DroneSession {
                 return Kernel.Message(title: "MissionDisengageReason.drone.max.distance.title".localized, details: "MissionDisengageReason.drone.max.distance.details".localized)
             }
         }
-        
+
         return nil
     }
     
