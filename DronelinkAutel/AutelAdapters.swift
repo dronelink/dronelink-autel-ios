@@ -153,6 +153,17 @@ public class AutelDroneAdapter: DroneAdapter {
         finished?("AutelDroneAdapter.stopCompassCalibration.unavailable".localized)
     }
     
+    public func startRemoteControlLinking(finished: CommandFinished?) {
+        //TODO is there a way to use drone.remoteController
+        finished?("AutelDroneAdapter.startRemoteControlLinking.unavailable".localized)
+    }
+    
+    public func stopRemoteControlLinking(finished: CommandFinished?) {
+        //TODO is there a way to use drone.remoteController
+        //drone.remoteController.exitRCCalibration(completion: finished)
+        finished?("AutelDroneAdapter.stopRemoteControlLinking.unavailable".localized)
+    }
+    
     public func enumElements(parameter: String) -> [EnumElement]? {
         return nil
     }
