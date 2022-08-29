@@ -163,13 +163,14 @@ public class AutelDroneSession: NSObject {
             
             for detail in details {
                 if let componentName = detail["ComponetName"] as? String,
-                   componentName == "DEV_UAV",
-                    let serialNumber = detail["SerialNumber"] as? String,
+                   let serialNumber = detail["SerialNumber"] as? String,
                     let software = detail["Software"] as? String {
-                    self?._serialNumber = serialNumber
-                    os_log(.info, log: AutelDroneSession.log, "Serial number: %{public}s", serialNumber)
-                    self?._firmwarePackageVersion = software
-                    os_log(.info, log: AutelDroneSession.log, "Firmware package version: %{public}s", software)
+                    if componentName == "DEV_UAV" {
+                        self?._serialNumber = serialNumber
+                        os_log(.info, log: AutelDroneSession.log, "Serial number: %{public}s", serialNumber)
+                        self?._firmwarePackageVersion = software
+                        os_log(.info, log: AutelDroneSession.log, "Firmware package version: %{public}s", software)
+                    }
                 }
             }
         }
