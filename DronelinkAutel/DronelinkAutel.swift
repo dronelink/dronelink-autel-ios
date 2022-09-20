@@ -602,18 +602,6 @@ extension AUTELRCHardwareLeftWheel {
     var percent: Double { max(-1, min(1, (Double(mValue) - 1024) / 665)) }
 }
 
-extension AUTELRCParingState {
-    var kernelValue: Kernel.RemoteControllerPairingState {
-        switch self {
-        case .RCParingStateNormal: return .unpaired
-        case .RCParingStateParing: return .pairing
-        case .RCParingStateCompleted: return .paired
-        case .RCParingStateUnknown: return .pairingUnknown
-        @unknown default: return .pairingUnknown
-        }
-    }
-}
-
 extension AUTELRCMultiPurposeButtonState {
     //FIXME not working?
     var pressed: Bool {

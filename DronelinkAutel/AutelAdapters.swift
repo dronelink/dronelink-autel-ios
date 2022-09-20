@@ -515,6 +515,4 @@ public class AutelRemoteControllerStateAdapter: RemoteControllerStateAdapter {
     }
 
     public var batteryPercent: Double { 0.0 }
-    
-    public var pairing: Kernel.RemoteControllerPairingState { .pairingUnknown }
 }

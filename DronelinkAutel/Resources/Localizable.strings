@@ -45,8 +45,6 @@
 "AutelDroneSessionManager.stopRemoteControllerLinking.unavailable" = "Unable to stop remote control linking.";
 
 "AutelDroneAdapter.stopCompassCalibration.unavailable" = "Unable to stop compass calibration";
-"AutelDroneAdapter.startRemoteControlLinking.unavailable" = "Unable to start remote control linking";
-"AutelDroneAdapter.stopRemoteControlLinking.unavailable" = "Unable to stop remote control linking";
 
 "AutelDroneSession+CameraCommand.stop.capture.error" = "Camera still capturing";
 "AutelDroneSession+CameraCommand.start.shoot.photo.no.file" = "Media File Not Created";
