@@ -41,6 +41,14 @@ extension AutelDroneSessionManager: DroneSessionManager {
         }
     }
     
+    public func startRemoteControllerLinking(finished: CommandFinished?) {
+        finished?("AutelDroneSessionManager.startRemoteControllerLinking.unavailable".localized)
+    }
+    
+    public func stopRemoteControllerLinking(finished: CommandFinished?) {
+        finished?("AutelDroneSessionManager.stopRemoteControllerLinking.unavailable".localized)
+    }
+    
     public var session: DroneSession? { _session }
     
     public var statusMessages: [Kernel.Message] { [] }
