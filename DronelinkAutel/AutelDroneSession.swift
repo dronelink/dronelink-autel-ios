@@ -46,6 +46,7 @@ public class AutelDroneSession: NSObject {
     private var _cameraStorageStates: [UInt: DatedValue<AUTELCameraSDCardState>] = [:]
     internal var _cameraExposureMode: DatedValue<AUTELCameraExposureMode>?
     private var _cameraExposureParameters: [String: DatedValue<AUTELCameraExposureParameters>] = [:]
+    private var _cameraHistograms: [String: DatedValue<[UInt]?>] = [:]
     
     private let gimbalSerialQueue = DispatchQueue(label: "AutelDroneSession+gimbalStates")
     private var _gimbalStates: [UInt: DatedValue<GimbalStateAdapter>] = [:]
@@ -336,6 +337,14 @@ extension AutelDroneSession: AUTELBaseCameraDelegate {
             self?._cameraExposureParameters["0.0"] = DatedValue<AUTELCameraExposureParameters>(value: exposureParameters)
         }
     }
+    
+    public func camera(_ camera: AUTELBaseCamera!, didUpdateHistogramTotalPixels totalPixels: Int, andPixelsPerLevel pixelsArray: [Any]!) {
+        cameraSerialQueue.async { [weak self] in
+            self?._cameraHistograms["0.0"] = DatedValue<[UInt]?>(value: pixelsArray?.map({
+                ($0 as? NSNumber)?.uintValue ?? 0
+            }))
+        }
+    }
 
     public func camera(_ camera: AUTELBaseCamera!, didGenerateNewMediaFile newMedia: AUTELMedia!) {
         var orientation = self.orientation
@@ -543,7 +552,8 @@ extension AutelDroneSession: DroneSession {
                         systemState: systemState.value,
                         storageState: _cameraStorageStates[0]?.value,
                         exposureMode: _cameraExposureMode?.value,
-                        exposureParameters: _cameraExposureParameters["0.0"]?.value
+                        exposureParameters: _cameraExposureParameters["0.0"]?.value,
+                        histogram: _cameraHistograms["0.0"]?.value
                     ),
                     date: systemState.date)
             }
