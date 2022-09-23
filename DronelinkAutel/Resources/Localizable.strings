@@ -41,6 +41,8 @@
 "AutelDroneSession.telemetry.unavailable" = "Telemetry Unavailable";
 "AutelDroneSession.createControlSession.execution.engine.unsupported" = "Unsupported execution engine: %@";
 
+"AutelDroneSessionManager.remoteControllerLinking.unavailable" = "Remote controller is unavailable.";
+
 "AutelDroneAdapter.stopCompassCalibration.unavailable" = "Unable to stop compass calibration";
 
 "AutelDroneSession+CameraCommand.stop.capture.error" = "Camera still capturing";
