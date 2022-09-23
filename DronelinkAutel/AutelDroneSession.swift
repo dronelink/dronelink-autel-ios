@@ -46,6 +46,7 @@ public class AutelDroneSession: NSObject {
     private var _cameraStorageStates: [UInt: DatedValue<AUTELCameraSDCardState>] = [:]
     internal var _cameraExposureMode: DatedValue<AUTELCameraExposureMode>?
     private var _cameraExposureParameters: [String: DatedValue<AUTELCameraExposureParameters>] = [:]
+    private var _cameraHistograms: [String: DatedValue<[UInt]?>] = [:]
     
     private let gimbalSerialQueue = DispatchQueue(label: "AutelDroneSession+gimbalStates")
     private var _gimbalStates: [UInt: DatedValue<GimbalStateAdapter>] = [:]
@@ -163,13 +164,14 @@ public class AutelDroneSession: NSObject {
             
             for detail in details {
                 if let componentName = detail["ComponetName"] as? String,
-                   componentName == "DEV_UAV",
-                    let serialNumber = detail["SerialNumber"] as? String,
+                   let serialNumber = detail["SerialNumber"] as? String,
                     let software = detail["Software"] as? String {
-                    self?._serialNumber = serialNumber
-                    os_log(.info, log: AutelDroneSession.log, "Serial number: %{public}s", serialNumber)
-                    self?._firmwarePackageVersion = software
-                    os_log(.info, log: AutelDroneSession.log, "Firmware package version: %{public}s", software)
+                    if componentName == "DEV_UAV" {
+                        self?._serialNumber = serialNumber
+                        os_log(.info, log: AutelDroneSession.log, "Serial number: %{public}s", serialNumber)
+                        self?._firmwarePackageVersion = software
+                        os_log(.info, log: AutelDroneSession.log, "Firmware package version: %{public}s", software)
+                    }
                 }
             }
         }
@@ -333,6 +335,14 @@ extension AutelDroneSession: AUTELBaseCameraDelegate {
     public func camera(_ camera: AUTELBaseCamera!, didUpdateCurrentExposureValues exposureParameters: AUTELCameraExposureParameters!) {
         cameraSerialQueue.async { [weak self] in
             self?._cameraExposureParameters["0.0"] = DatedValue<AUTELCameraExposureParameters>(value: exposureParameters)
+        }
+    }
+    
+    public func camera(_ camera: AUTELBaseCamera!, didUpdateHistogramTotalPixels totalPixels: Int, andPixelsPerLevel pixelsArray: [Any]!) {
+        cameraSerialQueue.async { [weak self] in
+            self?._cameraHistograms["0.0"] = DatedValue<[UInt]?>(value: pixelsArray?.map({
+                ($0 as? NSNumber)?.uintValue ?? 0
+            }))
         }
     }
 
@@ -542,7 +552,8 @@ extension AutelDroneSession: DroneSession {
                         systemState: systemState.value,
                         storageState: _cameraStorageStates[0]?.value,
                         exposureMode: _cameraExposureMode?.value,
-                        exposureParameters: _cameraExposureParameters["0.0"]?.value
+                        exposureParameters: _cameraExposureParameters["0.0"]?.value,
+                        histogram: _cameraHistograms["0.0"]?.value
                     ),
                     date: systemState.date)
             }

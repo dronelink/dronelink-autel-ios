@@ -203,6 +203,10 @@ public class AutelCameraAdapter: CameraAdapter {
         camera.formatSDCard(completion: finished)
     }
     
+    public func histogram(enabled: Bool, finished: DronelinkCore.CommandFinished?) {
+        camera.setHistogramEnabled(enabled, withCompletion: finished)
+    }
+    
     public func enumElements(parameter: String) -> [EnumElement]? {
         switch parameter {
         case "CameraPhotoInterval":
@@ -298,17 +302,17 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public let storageState: AUTELCameraSDCardState?
     private let _exposureMode: AUTELCameraExposureMode?
     public let exposureParameters: AUTELCameraExposureParameters?
+    public let histogram: [UInt]?
     
-    public init(systemState: AUTELCameraSystemBaseState, storageState: AUTELCameraSDCardState?, exposureMode: AUTELCameraExposureMode?, exposureParameters: AUTELCameraExposureParameters?) {
+    public init(systemState: AUTELCameraSystemBaseState, storageState: AUTELCameraSDCardState?, exposureMode: AUTELCameraExposureMode?, exposureParameters: AUTELCameraExposureParameters?, histogram: [UInt]?) {
         self.systemState = systemState
         self.storageState = storageState
         self._exposureMode = exposureMode
         self.exposureParameters = exposureParameters
+        self.histogram = histogram
     }
     
     public var lensIndex: UInt { 0 }
-    public var focusRingValue: Double? { nil }
-    public var focusRingMax: Double? { nil }
     public var isBusy: Bool { systemState.isBusy || (storageState?.formattingState ?? .none) == .formatting || storageState?.isInitializing ?? false }
     public var isCapturing: Bool { systemState.isCapturing }
     public var isCapturingPhotoInterval: Bool { systemState.isCapturingPhotoInterval }
@@ -376,6 +380,11 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
         nil
     }
     public var lensDetails: String? { nil }
+    public var focusMode: DronelinkCore.Kernel.CameraFocusMode { .unknown }
+    public var focusRingValue: Double? { nil }
+    public var focusRingMax: Double? { nil }
+    public var meteringMode: DronelinkCore.Kernel.CameraMeteringMode { .unknown }
+    public var isAutoExposureLockEnabled: Bool { false }
     public var aspectRatio: Kernel.CameraPhotoAspectRatio { mode == .photo ? ._3x2 : ._16x9 }
 }
 
