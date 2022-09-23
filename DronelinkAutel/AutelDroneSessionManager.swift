@@ -50,7 +50,7 @@ extension AutelDroneSessionManager: DroneSessionManager {
         }
         finished?("AutelDroneSessionManager.remoteControllerLinking.unavailable".localized)
     }
-    
+
     public func stopRemoteControllerLinking(finished: CommandFinished?) {
         if let remoteController = (AUTELAppManager.connectedDevice() as? AUTELDrone)?.remoteController {
             remoteController.exitRCCalibration(completion: finished)
@@ -58,7 +58,7 @@ extension AutelDroneSessionManager: DroneSessionManager {
         }
         finished?("AutelDroneSessionManager.remoteControllerLinking.unavailable".localized)
     }
-    
+
     public var session: DroneSession? { _session }
     
     public var statusMessages: [Kernel.Message] { [] }
