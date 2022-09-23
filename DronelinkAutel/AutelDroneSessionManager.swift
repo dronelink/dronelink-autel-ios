@@ -42,11 +42,21 @@ extension AutelDroneSessionManager: DroneSessionManager {
     }
     
     public func startRemoteControllerLinking(finished: CommandFinished?) {
-        finished?("AutelDroneSessionManager.startRemoteControllerLinking.unavailable".localized)
+        if let remoteController = (AUTELAppManager.connectedDevice() as? AUTELDrone)?.remoteController {
+            remoteController.enterRCPairingMode { (state: AUTELRCParingResultState, error: Error?) in
+                finished?(error)
+            }
+            return
+        }
+        finished?("AutelDroneSessionManager.remoteControllerLinking.unavailable".localized)
     }
     
     public func stopRemoteControllerLinking(finished: CommandFinished?) {
-        finished?("AutelDroneSessionManager.stopRemoteControllerLinking.unavailable".localized)
+        if let remoteController = (AUTELAppManager.connectedDevice() as? AUTELDrone)?.remoteController {
+            remoteController.exitRCCalibration(completion: finished)
+            return
+        }
+        finished?("AutelDroneSessionManager.remoteControllerLinking.unavailable".localized)
     }
     
     public var session: DroneSession? { _session }
