@@ -47,27 +47,28 @@ extension AutelDroneSession {
 //            flightController.setHomeLocation(CLLocation(latitude: command.coordinate.latitude, longitude: command.coordinate.longitude), withCompletion: finished)
 //            return nil
 //        }
-//
-//        if let command = droneCommand as? Kernel.LowBatteryWarningThresholdDroneCommand {
-//            flightController.getLowBatteryWarningThreshold { (current, error) in
-//                let target = UInt8(command.lowBatteryWarningThreshold * 100)
-//                Command.conditionallyExecute(current != target, error: error, finished: finished) {
-//                    flightController.setLowBatteryWarningThreshold(target, withCompletion: finished)
-//                }
-//            }
-//            return nil
-//        }
-//
-//        if let command = droneCommand as? Kernel.MaxAltitudeDroneCommand {
-//            flightController.getMaxFlightHeight { (current, error) in
-//                let target = UInt(command.maxAltitude)
-//                Command.conditionallyExecute(current != target, error: error, finished: finished) {
-//                    flightController.setMaxFlightHeight(target, withCompletion: finished)
-//                }
-//            }
-//            return nil
-//        }
-//
+
+        if let command = droneCommand as? Kernel.LowBatteryWarningThresholdDroneCommand {
+            let target = UInt8(command.lowBatteryWarningThreshold * 100)
+            adapter.drone.mainController.setLowBatteryWarning(target) { [weak self] error in
+                if error == nil {
+                    self?._mainControllerLowBatteryThreshold = command.lowBatteryWarningThreshold
+                }
+                finished(error)
+            }
+            return nil
+        }
+
+        if let command = droneCommand as? Kernel.MaxAltitudeDroneCommand {
+            adapter.drone.mainController.flightLimitation?.setMaxFlightHeight(Float(command.maxAltitude)) { [weak self] error in
+                if error == nil {
+                    self?._flightLimitationMaxFlightHeight = Float(command.maxAltitude)
+                }
+                finished(error)
+            }
+            return nil
+        }
+
 //        if let command = droneCommand as? Kernel.MaxDistanceDroneCommand {
 //            flightController.getMaxFlightRadius { (current, error) in
 //                let target = UInt(command.maxDistance)
@@ -95,17 +96,17 @@ extension AutelDroneSession {
 //            }
 //            return nil
 //        }
-//
-//        if let command = droneCommand as? Kernel.ReturnHomeAltitudeDroneCommand {
-//            flightController.getGoHomeHeightInMeters { (current, error) in
-//                let target = UInt(command.returnHomeAltitude)
-//                Command.conditionallyExecute(current != target, error: error, finished: finished) {
-//                    flightController.setGoHomeHeightInMeters(target, withCompletion: finished)
-//                }
-//            }
-//            return nil
-//        }
-//
+
+        if let command = droneCommand as? Kernel.ReturnHomeAltitudeDroneCommand {
+            adapter.drone.mainController.setGoHomeDefaultAltitude(Float(command.returnHomeAltitude)) { [weak self] error in
+                if error == nil {
+                    self?._mainControllerGoHomeDefaultAltitude = Float(command.returnHomeAltitude)
+                }
+                finished(error)
+            }
+            return nil
+        }
+
 //        if let command = droneCommand as? Kernel.SeriousLowBatteryWarningThresholdDroneCommand {
 //            flightController.getSeriousLowBatteryWarningThreshold { (current, error) in
 //                let target = UInt8(command.seriousLowBatteryWarningThreshold * 100)

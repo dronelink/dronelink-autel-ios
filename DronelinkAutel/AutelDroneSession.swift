@@ -32,7 +32,9 @@ public class AutelDroneSession: NSObject {
     
     private let mainControllerSerialQueue = DispatchQueue(label: "AutelDroneSession+mainControllerState")
     private var _mainControllerState: DatedValue<AUTELMCSystemState>?
-    private var _mainControllerLowBatteryThreshold: Double?
+    public var _mainControllerGoHomeDefaultAltitude: Float?
+    public var _mainControllerLowBatteryThreshold: Double?
+    public var _flightLimitationMaxFlightHeight: Float?
     
     private let batterySerialQueue = DispatchQueue(label: "AutelDroneSession+batteryState")
     private var _batteryState: DatedValue<AUTELBatteryState>?
@@ -47,6 +49,7 @@ public class AutelDroneSession: NSObject {
     internal var _cameraExposureMode: DatedValue<AUTELCameraExposureMode>?
     private var _cameraExposureParameters: [String: DatedValue<AUTELCameraExposureParameters>] = [:]
     private var _cameraHistograms: [String: DatedValue<[UInt]?>] = [:]
+    internal var _cameraFocusMode: DatedValue<AUTELCameraLensFocusMode>?
     
     private let gimbalSerialQueue = DispatchQueue(label: "AutelDroneSession+gimbalStates")
     private var _gimbalStates: [UInt: DatedValue<GimbalStateAdapter>] = [:]
@@ -90,6 +93,11 @@ public class AutelDroneSession: NSObject {
         }
         
         mainController.mcDelegate = self
+        mainController.getGoHomeDefaultAltitude { [weak self] (value, error) in
+            if error == nil {
+                self?._mainControllerGoHomeDefaultAltitude = value
+            }
+        }
         
         //TODO need to get these periodically probably
         mainController.getLowBatteryWarning { [weak self] (value, error) in
@@ -144,6 +152,12 @@ public class AutelDroneSession: NSObject {
                         os_log(.debug, log: AutelDroneSession.log, "Main controller max horizontal velocity: %{public}f", value)
                         self?._maxHorizontalVelocity = Double(value)
                     }
+                }
+            }
+            
+            flightLimitation.getMaxFlightHeight { [weak self] (value, error) in
+                if error == nil {
+                    self?._flightLimitationMaxFlightHeight = value
                 }
             }
         }
@@ -232,6 +246,16 @@ public class AutelDroneSession: NSObject {
                 adapter.drone.camera.getExposureMode { [weak self] (value, error) in
                     self?.cameraSerialQueue.async {
                         self?._cameraExposureMode = DatedValue(value: value)
+                    }
+                }
+            }
+            
+            if -(_cameraFocusMode?.date.timeIntervalSinceNow ?? -5.0) >= 5.0 {
+                //update the date so we don't run twice
+                _cameraFocusMode = DatedValue(value: _cameraFocusMode?.value ?? .unknown)
+                adapter.drone.camera.getLensFocusMode { [weak self] (value, error) in
+                    self?.cameraSerialQueue.async {
+                        self?._cameraFocusMode = DatedValue(value: value)
                     }
                 }
             }
@@ -553,6 +577,7 @@ extension AutelDroneSession: DroneSession {
                         storageState: _cameraStorageStates[0]?.value,
                         exposureMode: _cameraExposureMode?.value,
                         exposureParameters: _cameraExposureParameters["0.0"]?.value,
+                        focusMode: _cameraFocusMode?.value,
                         histogram: _cameraHistograms["0.0"]?.value
                     ),
                     date: systemState.date)
@@ -609,8 +634,18 @@ extension AutelDroneSession: DroneStateAdapter {
     public var verticalSpeed: Double { mainControllerState?.value.verticalSpeed ?? 0 }
     public var altitude: Double { Double(mainControllerState?.value.altitude ?? 0) }
     public var ultrasonicAltitude: Double? { mainControllerState?.value.isUltrasonicWorking ?? false ? Double(mainControllerState?.value.ultrasonicHeight ?? 0) : nil }
-    public var returnHomeAltitude: Double? { nil }
-    public var maxAltitude: Double? { nil }
+    public var returnHomeAltitude: Double? {
+        if let returnHomeAltitude = _mainControllerGoHomeDefaultAltitude {
+            return Double(returnHomeAltitude)
+        }
+        return nil
+    }
+    public var maxAltitude: Double? {
+        if let maxAltitude = _flightLimitationMaxFlightHeight {
+            return Double(maxAltitude)
+        }
+        return nil
+    }
     public var batteryPercent: Double? {
         if let remainPowerPercent = batteryState?.value.remainPowerPercent {
             return Double(remainPowerPercent) / 100

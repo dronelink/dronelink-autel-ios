@@ -34,14 +34,14 @@ extension AutelDroneSession {
             return nil
         }
 
-//        if let command = cameraCommand as? Kernel.AutoExposureLockCameraCommand {
-//            camera.getAELock { (current, error) in
-//                Command.conditionallyExecute(current != command.enabled, error: error, finished: finished) {
-//                    camera.setAELock(command.enabled, withCompletion: finished)
-//                }
-//            }
-//            return nil
-//        }
+        if let command = cameraCommand as? Kernel.AutoExposureLockCameraCommand {
+            camera.getAELock { (current, error) in
+                Command.conditionallyExecute(current != command.enabled, error: error, finished: finished) {
+                    camera.setAELock(command.enabled, withCompletion: finished)
+                }
+            }
+            return nil
+        }
 
         if let command = cameraCommand as? Kernel.AutoLockGimbalCameraCommand {
             camera.getGimbalLockState { (current, error) in
@@ -99,20 +99,14 @@ extension AutelDroneSession {
             return nil
         }
 
+        if let command = cameraCommand as? Kernel.ExposureCompensationStepCameraCommand {
+            let exposureCompensation = state.exposureCompensation.offset(steps: command.exposureCompensationSteps).autelValue
+            Command.conditionallyExecute(state.exposureParameters?.exposureCompensation != exposureCompensation, finished: finished) {
+                camera.setExposureCompensation(exposureCompensation, withCompletion: finished)
+            }
+            return nil
+        }
 
-//        if let command = cameraCommand as? Kernel.ExposureCompensationStepCameraCommand {
-//            let exposureCompensation = state.exposureCompensation.offset(steps: command.exposureCompensationSteps).djiValue
-//            Command.conditionallyExecute(state.exposureSettings?.exposureCompensation != exposureCompensation, finished: finished) {
-//                if let lens = camera.lenses[safeIndex: Int(state.lensIndex)] {
-//                    lens.setExposureCompensation(exposureCompensation, withCompletion: finished)
-//                }
-//                else {
-//                    camera.setExposureCompensation(exposureCompensation, withCompletion: finished)
-//                }
-//            }
-//            return nil
-//        }
-//
         if let command = cameraCommand as? Kernel.ExposureModeCameraCommand {
             camera.getExposureMode { (current, error) in
                 Command.conditionallyExecute(current != command.exposureMode.autelValue, error: error, finished: finished) {
@@ -133,22 +127,14 @@ extension AutelDroneSession {
 //            }
 //            return nil
 //        }
-//
-//        if let command = cameraCommand as? Kernel.FocusCameraCommand {
-//            camera.setFocusTarget(command.focusTarget.cgPoint) { error in
-//                if error != nil {
-//                    finished(error)
-//                    return
-//                }
-//
-//                DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
-//                    self?.cameraCommandFinishFocusTargetVerifyRing(cameraCommand: command, finished: finished)
-//                }
-//            }
-//
-//            return nil
-//        }
-//
+
+        if let command = cameraCommand as? Kernel.FocusCameraCommand {
+            let rowIndex = Int(round(command.focusTarget.x * 8)) + 1
+            let colIndex = Int(round(command.focusTarget.y * 8)) + 1
+            camera.setAFLensFocusMode(.spot, andLensFocusAreaRowIndex: rowIndex, andColIndex: colIndex, withCompletion: finished)
+            return nil
+        }
+
 //        if let command = cameraCommand as? Kernel.FocusDistanceCameraCommand {
 //            if let ringValue = Dronelink.shared.get(cameraFocusCalibration: command.focusCalibration.with(droneSerialNumber: serialNumber))?.ringValue {
 //                let targetFocusRingValue = UInt(ringValue)
@@ -170,14 +156,17 @@ extension AutelDroneSession {
 //            return "DJIDroneSession+CameraCommand.focus.distance.error".localized
 //        }
 //
-//        if let command = cameraCommand as? Kernel.FocusModeCameraCommand {
-//            camera.getFocusMode { (current, error) in
-//                Command.conditionallyExecute(current != command.focusMode.djiValue, error: error, finished: finished) {
-//                    camera.setFocusMode(command.focusMode.djiValue, withCompletion: finished)
-//                }
-//            }
-//            return nil
-//        }
+        if let command = cameraCommand as? Kernel.FocusModeCameraCommand {
+            camera.getLensFocusMode { (current, error) in
+                Command.conditionallyExecute(current != command.focusMode.autelValue, error: error, finished: finished) {
+                    camera.setLensFocusMode(command.focusMode.autelValue) { [weak self] error in
+                        self?._cameraFocusMode = nil
+                        finished(error)
+                    }
+                }
+            }
+            return nil
+        }
 //
 //        if let command = cameraCommand as? Kernel.FocusRingCameraCommand {
 //            let targetFocusRingValue = UInt(command.focusRingPercent * Double(state.focusRingMax ?? 0))
@@ -211,16 +200,17 @@ extension AutelDroneSession {
 //            }
 //            return nil
 //        }
-//
-//        if let command = cameraCommand as? Kernel.MeteringModeCameraCommand {
+
+        if let command = cameraCommand as? Kernel.MeteringModeCameraCommand {
+            finished(nil)
 //            camera.getMeteringMode { (current, error) in
 //                Command.conditionallyExecute(current != command.meteringMode.djiValue, error: error, finished: finished) {
 //                    camera.setMeteringMode(command.meteringMode.djiValue, withCompletion: finished)
 //                }
 //            }
-//            return nil
-//        }
-//
+            return nil
+        }
+
         if let command = cameraCommand as? Kernel.ModeCameraCommand {
             Command.conditionallyExecute(command.mode != state.mode, finished: finished) {
                 camera.setCameraWorkMode(command.mode.autelValue, withCompletion: finished)
@@ -287,12 +277,12 @@ extension AutelDroneSession {
             return nil
         }
 
-//        if let command = cameraCommand as? Kernel.SpotMeteringTargetCameraCommand {
-//            let rowIndex = UInt8(round(command.spotMeteringTarget.y * 7))
-//            let columnIndex = UInt8(round(command.spotMeteringTarget.x * 11))
-//            camera.setSpotMeteringTargetRowIndex(rowIndex, columnIndex: columnIndex, withCompletion: finished)
-//            return nil
-//        }
+        if let command = cameraCommand as? Kernel.SpotMeteringTargetCameraCommand {
+            let rowIndex = UInt8(round(command.spotMeteringTarget.x * 8)) + 1
+            let colIndex = UInt8(round(command.spotMeteringTarget.y * 8)) + 1
+            camera.setSpotMeteringAreaRowIndex(rowIndex, andColIndex: colIndex, withCompletion: finished)
+            return nil
+        }
 
         if let command = cameraCommand as? Kernel.StartCaptureCameraCommand {
             switch state.mode {

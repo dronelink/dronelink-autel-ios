@@ -278,6 +278,28 @@ extension Kernel.CameraExposureMode {
     }
 }
 
+extension AUTELCameraLensFocusMode {
+    var kernelValue: Kernel.CameraFocusMode {
+        switch self {
+        case .manual: return .manual
+        case .auto: return .auto
+        case .AFC: return .autoContinuous
+        case .unknown: return .unknown
+        }
+    }
+}
+
+extension Kernel.CameraFocusMode {
+    var autelValue: AUTELCameraLensFocusMode {
+        switch self {
+        case .manual: return .manual
+        case .auto: return .AFC //FIXME .auto
+        case .autoContinuous: return .AFC
+        case .unknown: return .unknown
+        }
+    }
+}
+
 extension AUTELCameraISO {
     var kernelValue: Kernel.CameraISO {
         switch self {

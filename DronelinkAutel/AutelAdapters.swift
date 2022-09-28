@@ -302,13 +302,15 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public let storageState: AUTELCameraSDCardState?
     private let _exposureMode: AUTELCameraExposureMode?
     public let exposureParameters: AUTELCameraExposureParameters?
+    private let _focusMode: AUTELCameraLensFocusMode?
     public let histogram: [UInt]?
     
-    public init(systemState: AUTELCameraSystemBaseState, storageState: AUTELCameraSDCardState?, exposureMode: AUTELCameraExposureMode?, exposureParameters: AUTELCameraExposureParameters?, histogram: [UInt]?) {
+    public init(systemState: AUTELCameraSystemBaseState, storageState: AUTELCameraSDCardState?, exposureMode: AUTELCameraExposureMode?, exposureParameters: AUTELCameraExposureParameters?, focusMode: AUTELCameraLensFocusMode?, histogram: [UInt]?) {
         self.systemState = systemState
         self.storageState = storageState
         self._exposureMode = exposureMode
         self.exposureParameters = exposureParameters
+        self._focusMode = focusMode
         self.histogram = histogram
     }
     
@@ -380,7 +382,7 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
         nil
     }
     public var lensDetails: String? { nil }
-    public var focusMode: DronelinkCore.Kernel.CameraFocusMode { .unknown }
+    public var focusMode: DronelinkCore.Kernel.CameraFocusMode { _focusMode?.kernelValue ?? .unknown }
     public var focusRingValue: Double? { nil }
     public var focusRingMax: Double? { nil }
     public var meteringMode: DronelinkCore.Kernel.CameraMeteringMode { .unknown }
