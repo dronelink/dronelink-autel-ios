@@ -118,10 +118,10 @@ public class AutelDroneAdapter: DroneAdapter {
         else {
             model.leftHorizonPole = Int32(remoteControllerSticksCommand.leftStick.x * 100)
         }
-        model.leftVerticalPole = Int32(-remoteControllerSticksCommand.leftStick.y * 100)
+        model.leftVerticalPole = Int32(remoteControllerSticksCommand.leftStick.y * 100)
         
-        model.rightHorizonPole = Int32(remoteControllerSticksCommand.rightStick.x * 100)
-        model.rightVerticalPole = Int32(remoteControllerSticksCommand.rightStick.y * 100)
+        model.rightHorizonPole = Int32(-remoteControllerSticksCommand.rightStick.x * 100)
+        model.rightVerticalPole = Int32(-remoteControllerSticksCommand.rightStick.y * 100)
         linkGen2.sendVirtualJoystickControlCommand(model, withCompletion: nil)
     }
     

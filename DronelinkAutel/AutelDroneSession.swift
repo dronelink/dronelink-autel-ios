@@ -9,6 +9,21 @@ import os
 import DronelinkCore
 import AUTELSDK
 
+private enum AutelDroneSessionMainControllerInitAction: Error {
+    case setPitchStickSensitivity
+    case setRollStickSensitivity
+    case setYawStickSensitivity
+    case setThrustStickSensitivity
+    case setAttitudeStickSensitivity
+    case setBrakeStickSensitivity
+    case setYawSchStickSensitivity
+    case getGoHomeDefaultAltitude
+    case getLowBatteryWarning
+    case setBeginnerMode
+    case setMaxFlightHorizontalSpeed
+    case getMaxFlightHeight
+}
+
 public class AutelDroneSession: NSObject {
     internal static let log = OSLog(subsystem: "DronelinkAutel", category: "AutelDroneSession")
     
@@ -86,37 +101,288 @@ public class AutelDroneSession: NSObject {
         adapter.drone.camera?.delegate = self
     }
     
-    private func initMainController() {
+    private func initMainController(action: AutelDroneSessionMainControllerInitAction = .setPitchStickSensitivity) {
         guard let mainController = adapter.drone.mainController else {
             os_log(.error, log: AutelDroneSession.log, "Main controller unavailable")
             return
         }
         
-        mainController.mcDelegate = self
-        mainController.getGoHomeDefaultAltitude { [weak self] (value, error) in
-            if error == nil {
-                self?._mainControllerGoHomeDefaultAltitude = value
-            }
+        if mainController.mcDelegate == nil {
+            mainController.mcDelegate = self
         }
         
-        //TODO need to get these periodically probably
-        mainController.getLowBatteryWarning { [weak self] (value, error) in
-            if error == nil {
-                self?._mainControllerLowBatteryThreshold = Double(value) / 100
+        switch action {
+        case .setPitchStickSensitivity:
+            mainController.getPitchStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getPitchStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 0.5) > 0.01 {
+                    mainController.setPitchStickSensitivity(0.5) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setPitchStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setPitchStickSensitivity reset to 0.5 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .setRollStickSensitivity)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getPitchStickSensitivity already set to 0.5")
+                self?.initMainController(action: .setRollStickSensitivity)
             }
-        }
-        
-        if let flightLimitation = mainController.flightLimitation {
-            flightLimitation.getBeginnerModeEnable { enabled, error in
-                if enabled {
-                    flightLimitation.setBeginnerMode(false) { error in
-                       if error == nil {
-                           os_log(.debug, log: AutelDroneSession.log, "Main controller beginner mode disabled")
-                       }
+            break
+            
+        case .setRollStickSensitivity:
+            mainController.getRollStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getRollStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 0.5) > 0.01 {
+                    mainController.setRollStickSensitivity(0.5) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setRollStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setRollStickSensitivity reset to 0.5 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .setYawStickSensitivity)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getRollStickSensitivity already set to 0.5")
+                self?.initMainController(action: .setYawStickSensitivity)
+            }
+            break
+            
+        case .setYawStickSensitivity:
+            mainController.getYawStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getYawStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 0.5) > 0.01 {
+                    mainController.setYawStickSensitivity(0.5) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setYawStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setYawStickSensitivity reset to 0.5 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .setThrustStickSensitivity)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getYawStickSensitivity already set to 0.5")
+                self?.initMainController(action: .setThrustStickSensitivity)
+            }
+            break
+            
+        case .setThrustStickSensitivity:
+            mainController.getThrustStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getThrustStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 0.5) > 0.01 {
+                    mainController.setThrustStickSensitivity(0.5) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setYawStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setYawStickSensitivity reset to 0.5 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .setAttitudeStickSensitivity)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getThrustStickSensitivity already set to 0.5")
+                self?.initMainController(action: .setAttitudeStickSensitivity)
+            }
+            break
+            
+        case .setAttitudeStickSensitivity:
+            mainController.getAttitudeStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getAttitudeStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 1.0) > 0.01 {
+                    mainController.setAttitudeStickSensitivity(1.0) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setAttitudeStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setAttitudeStickSensitivity reset to 1.0 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .setBrakeStickSensitivity)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getAttitudeStickSensitivity already set to 1.0")
+                self?.initMainController(action: .setBrakeStickSensitivity)
+            }
+            break
+            
+        case .setBrakeStickSensitivity:
+            mainController.getBrakeStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getBrakeStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 1.0) > 0.01 {
+                    mainController.setBrakeStickSensitivity(1.0) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setBrakeStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setBrakeStickSensitivity reset to 1.0 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .setYawSchStickSensitivity)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getBrakeStickSensitivity already set to 1.0")
+                self?.initMainController(action: .setYawSchStickSensitivity)
+            }
+            break
+            
+        case .setYawSchStickSensitivity:
+            mainController.getYawSchStickSensitivity { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getYawSchStickSensitivity failed: %{public}s", error.localizedDescription)
+                }
+                
+                if error != nil || abs(value - 0.75) > 0.01 {
+                    mainController.setYawSchStickSensitivity(0.75) {error in
+                        if let error = error {
+                            os_log(.error, log: AutelDroneSession.log, "Main controller setBrakeStickSensitivity failed: %{public}s", error.localizedDescription)
+                        }
+                        else {
+                            os_log(.info, log: AutelDroneSession.log, "Main controller setBrakeStickSensitivity reset to 0.75 (%{public}f)", value)
+                        }
+                        self?.initMainController(action: .getGoHomeDefaultAltitude)
+                    }
+                    return
+                }
+                
+                os_log(.info, log: AutelDroneSession.log, "Main controller getYawSchStickSensitivity already set to 0.75")
+                self?.initMainController(action: .getGoHomeDefaultAltitude)
+            }
+            break
+            
+        case .getGoHomeDefaultAltitude:
+            mainController.getGoHomeDefaultAltitude { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getGoHomeDefaultAltitude failed: %{public}s", error.localizedDescription)
+                }
+                else {
+                    self?._mainControllerGoHomeDefaultAltitude = value
+                }
+                self?.initMainController(action: .getLowBatteryWarning)
+            }
+            break
+            
+        case .getLowBatteryWarning:
+            mainController.getLowBatteryWarning { [weak self] (value, error) in
+                if let error = error {
+                    os_log(.error, log: AutelDroneSession.log, "Main controller getLowBatteryWarning failed: %{public}s", error.localizedDescription)
+                }
+                else {
+                    self?._mainControllerLowBatteryThreshold = Double(value) / 100
+                }
+                self?.initMainController(action: .setBeginnerMode)
+            }
+            break
+            
+        case .setBeginnerMode:
+            if let flightLimitation = mainController.flightLimitation {
+                flightLimitation.getBeginnerModeEnable { [weak self] enabled, error in
+                    if let error = error {
+                        os_log(.error, log: AutelDroneSession.log, "Main controller getBeginnerModeEnable failed: %{public}s", error.localizedDescription)
+                    }
+                    
+                    if error != nil || enabled {
+                        flightLimitation.setBeginnerMode(false) { error in
+                            if let error = error {
+                                os_log(.error, log: AutelDroneSession.log, "Main controller setBeginnerMode failed: %{public}s", error.localizedDescription)
+                            }
+                            else {
+                                os_log(.info, log: AutelDroneSession.log, "Main controller setBeginnerMode to false")
+                            }
+                            self?.initMainController(action: .setMaxFlightHorizontalSpeed)
+                        }
+                        return
+                    }
+                    
+                    os_log(.info, log: AutelDroneSession.log, "Main controller getBeginnerModeEnable already set to false")
+                    self?.initMainController(action: .setMaxFlightHorizontalSpeed)
+                }
+            }
+            else {
+                os_log(.error, log: AutelDroneSession.log, "Main controller flightLimitation unavailable to getBeginnerModeEnable")
+                initMainController(action: .setMaxFlightHorizontalSpeed)
+            }
+            break
+            
+        case .setMaxFlightHorizontalSpeed:
+            if let flightLimitation = mainController.flightLimitation {
+                flightLimitation.getMaxFlightHorizontalSpeed { [weak self] value, error in
+                    if let error = error {
+                        os_log(.error, log: AutelDroneSession.log, "Main controller getMaxFlightHorizontalSpeed failed: %{public}s", error.localizedDescription)
+                    }
+                    
+                    if error != nil || abs(value - 15.0) > 0.01 {
+                        flightLimitation.setMaxFlightHorizontalSpeed(15) { error in
+                            if let error = error {
+                                os_log(.error, log: AutelDroneSession.log, "Main controller setMaxFlightHorizontalSpeed failed: %{public}s", error.localizedDescription)
+                            }
+                            else {
+                                os_log(.info, log: AutelDroneSession.log, "Main controller setMaxFlightHorizontalSpeed to 15 m/s")
+                            }
+                            self?.initMainController(action: .getMaxFlightHeight)
+                        }
+                        return
+                    }
+                    
+                    os_log(.info, log: AutelDroneSession.log, "Main controller setMaxFlightHorizontalSpeed already set to 15 m/s")
+                    self?.initMainController(action: .getMaxFlightHeight)
+                }
+            }
+            else {
+                os_log(.error, log: AutelDroneSession.log, "Main controller flightLimitation unavailable to getMaxFlightHorizontalSpeed")
+                initMainController(action: .getMaxFlightHeight)
+            }
+            break
+            
+        case .getMaxFlightHeight:
+            if let flightLimitation = mainController.flightLimitation {
+                flightLimitation.getMaxFlightHeight { [weak self] value, error in
+                    if let error = error {
+                        os_log(.error, log: AutelDroneSession.log, "Main controller getMaxFlightHeight failed: %{public}s", error.localizedDescription)
+                    }
+                    else {
+                        self?._flightLimitationMaxFlightHeight = value
+                        os_log(.info, log: AutelDroneSession.log, "Main controller getMaxFlightHeight %{public}f", value)
                     }
                 }
             }
-            
+            else {
+                os_log(.error, log: AutelDroneSession.log, "Main controller flightLimitation unavailable to getMaxFlightHeight")
+            }
+            break
+        }
+        
+        
 // Autel claims this is legacy code
 //            flightLimitation.setMaxDescentSpeed(-5) { [weak self] error in
 //                flightLimitation.getMaxDescentSpeed { (value, error) in
@@ -129,7 +395,7 @@ public class AutelDroneSession: NSObject {
 //                    }
 //                }
 //            }
-            
+        
 // Autel claims this is legacy code
 //            flightLimitation.setMaxAscentSpeed(5) { [weak self] error in
 //                flightLimitation.getMaxAscentSpeed { (value, error) in
@@ -142,25 +408,6 @@ public class AutelDroneSession: NSObject {
 //                    }
 //                }
 //            }
-            
-            flightLimitation.setMaxFlightHorizontalSpeed(15) { [weak self] error in
-                flightLimitation.getMaxFlightHorizontalSpeed { (value, error) in
-                    if let error = error {
-                        os_log(.debug, log: AutelDroneSession.log, "Main controller max horizontal velocity unknown")
-                    }
-                    else {
-                        os_log(.debug, log: AutelDroneSession.log, "Main controller max horizontal velocity: %{public}f", value)
-                        self?._maxHorizontalVelocity = Double(value)
-                    }
-                }
-            }
-            
-            flightLimitation.getMaxFlightHeight { [weak self] (value, error) in
-                if error == nil {
-                    self?._flightLimitationMaxFlightHeight = value
-                }
-            }
-        }
     }
     
     private func initDroneDetails(attempt: Int = 0) {
@@ -542,7 +789,7 @@ extension AutelDroneSession: DroneSession {
         delegates.invoke { $0.onCommandFinished(session: self, command: command, error: error) }
     }
     
-    public func createControlSession(executionEngine: Kernel.ExecutionEngine, executor: Executor) throws -> DroneControlSession {
+    public func createControlSession(executionEngine: Kernel.ExecutionEngine, executor: Executor?) throws -> DroneControlSession {
         switch executionEngine {
         case .dronelinkKernel:
             return AutelVirtualStickSession(droneSession: self)
