@@ -166,12 +166,13 @@ public class AutelRemoteControllerAdapter: RemoteControllerAdapter {
     }
     
     public func startDeviceCharging(finished: CommandFinished?) {
-        finished?("AutelRemoteControllerAdapter.DeviceCharging.unavailable".localized)
+        finished?("AutelRemoteControllerAdapter.deviceCharging.unavailable".localized)
     }
     
     public func stopDeviceCharging(finished: CommandFinished?) {
-        finished?("AutelRemoteControllerAdapter.DeviceCharging.unavailable".localized)
+        finished?("AutelRemoteControllerAdapter.deviceCharging.unavailable".localized)
     }
+
     public var index: UInt { 0 }
 }
 
@@ -481,6 +482,7 @@ public class AutelGimbalStateAdapter: GimbalStateAdapter {
 }
 
 extension AUTELRemoteController: RemoteControllerAdapter {
+    
     public func startDeviceCharging(finished: CommandFinished?) {
     
     }
@@ -540,7 +542,7 @@ public class AutelRemoteControllerStateAdapter: RemoteControllerStateAdapter {
             pressed: rcHardwareState.mCustomButton2.pressed)
     }
     
-    public var chargingDevice: Bool? { nil }
+    public var isChargingDevice: Bool? { nil }
 
     public var batteryPercent: Double { 0.0 }
 }
