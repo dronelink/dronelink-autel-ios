@@ -48,6 +48,8 @@
 "AutelDroneSession+CameraCommand.stop.capture.error" = "Camera still capturing";
 "AutelDroneSession+CameraCommand.start.shoot.photo.no.file" = "Media File Not Created";
 
+"AutelRemoteControllerAdapter.DeviceCharging.unavailable" = "Device charging is not available for this remote controller.";
+
 "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title" = "GPS Signal Unavailable";
 "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details" = "Please wait for a strong GPS signal lock to continue.";
 "DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title" = "Home Location Not Set";
