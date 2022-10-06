@@ -482,7 +482,6 @@ public class AutelGimbalStateAdapter: GimbalStateAdapter {
 }
 
 extension AUTELRemoteController: RemoteControllerAdapter {
-    
     public func startDeviceCharging(finished: CommandFinished?) {
     
     }
