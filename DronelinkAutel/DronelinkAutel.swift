@@ -132,6 +132,10 @@ extension Kernel.CameraPhotoMode {
         case .highResolution: return .unknown
         case .smart: return .unknown
         case .internalAISpotChecking: return .unknown
+        case .hyperLapse: return .unknown
+        case .superResolution: return .unknown
+        case .regionalSR: return .unknown
+        case .vr: return .unknown
         case .unknown: return .unknown
         }
     }
@@ -145,6 +149,9 @@ extension Kernel.CameraPhotoFileFormat {
         case .rawAndJpeg: return .jpgAndDNG
         case .tiff14bit: return .unknown
         case .radiometricJpeg: return .RJPEG
+        case .radiometricJpegLow: return .unknown
+        case .radiometricJpegHigh: return .unknown
+        case .tiff8bit: return .unknown
         case .tiff14bitLinearLowTempResolution: return .unknown
         case .tiff14bitLinearHighTempResolution: return .unknown
         case .unknown: return .unknown
@@ -331,6 +338,9 @@ extension Kernel.CameraISO {
         case ._6400: return .ISO6400
         case ._12800: return .ISO12800
         case ._25600: return .ISO25600
+        case ._50: return .isoUnknown
+        case ._51200: return .isoUnknown
+        case ._102400: return .isoUnknown
         case .unknown: return .isoUnknown
         }
     }
@@ -483,6 +493,16 @@ extension Kernel.CameraShutterSpeed {
         case ._23: return .speedUnknown
         case ._25: return .speed25p0
         case ._30: return .speed30p0
+        case ._1_20000: return .speedUnknown
+        case ._1_16000: return .speedUnknown
+        case ._1_12800: return .speedUnknown
+        case ._1_10000: return .speedUnknown
+        case ._40: return .speedUnknown
+        case ._50: return .speedUnknown
+        case ._60: return .speedUnknown
+        case ._80: return .speedUnknown
+        case ._100: return .speedUnknown
+        case ._120: return .speedUnknown
         case .unknown: return .speedUnknown
         }
     }
@@ -517,6 +537,11 @@ extension AUTELCameraAperture {
 extension Kernel.CameraAperture {
     var autelValue: AUTELCameraAperture {
         switch self {
+        case .f0dot95: return .unknown
+        case .f1dot0: return .unknown
+        case .f1dot2: return .unknown
+        case .f1dot3: return .unknown
+        case .f1dot4: return .unknown
         case .f1dot6: return .unknown
         case .f1dot7: return .unknown
         case .f1dot8: return .f1p8
@@ -530,9 +555,11 @@ extension Kernel.CameraAperture {
         case .f3dot4: return .unknown
         case .f3dot5: return .unknown
         case .f4: return .f4p0
+        case .f4dot4: return .unknown
         case .f4dot5: return .f4p5
         case .f4dot8: return .unknown
         case .f5: return .f5p0
+        case .f6: return .unknown
         case .f5dot6: return .f5p6
         case .f6dot3: return .f6p3
         case .f6dot8: return .unknown
@@ -550,7 +577,18 @@ extension Kernel.CameraAperture {
         case .f19: return .unknown
         case .f20: return .unknown
         case .f22: return .unknown
+        case .f25: return .unknown
+        case .f27: return .unknown
+        case .f28: return .unknown
+        case .f32: return .unknown
+        case .f37: return .unknown
+        case .f41: return .unknown
+        case .f45: return .unknown
+        case .f52: return .unknown
+        case .f58: return .unknown
+        case .f64: return .unknown
         case .unknown: return .unknown
+        case .auto: return .unknown
         }
     }
 }
@@ -562,6 +600,8 @@ extension Kernel.CameraVideoFileFormat {
         case .mp4: return .MP4
         case .tiffSequence: return .TIFF
         case .seq: return .unknown
+        case .cdng: return .unknown
+        case .mxf: return .unknown
         case .unknown: return .unknown
         }
     }
