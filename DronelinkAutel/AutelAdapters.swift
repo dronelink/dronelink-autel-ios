@@ -60,7 +60,7 @@ public class AutelDroneAdapter: DroneAdapter {
         let model = AUTELRCVirtualJoystickControlModel()
         //positive = clockwise
         if let heading = velocityCommand.heading {
-            model.leftHorizonPole = max(-100, min(100, Int32((heading.angleDifferenceSigned(angle: orientation.yaw).convertRadiansToDegrees / AUTELDrone.maxRotationalVelocity * 100))))
+            model.leftHorizonPole = max(-100, min(100, Int32(((heading.angleDifferenceSigned(angle: orientation.yaw).convertRadiansToDegrees / 180.0) * 75.0))))
         }
         else {
             model.leftHorizonPole = max(-100, min(100, Int32((velocityCommand.velocity.rotational.convertRadiansToDegrees / AUTELDrone.maxRotationalVelocity * 100))))
@@ -371,6 +371,7 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public var shutterSpeed: Kernel.CameraShutterSpeed { exposureParameters?.shutterSpeed.kernelValue ?? .unknown }
     public var shutterSpeedActual: Kernel.CameraShutterSpeed? { shutterSpeed }
     public var aperture: Kernel.CameraAperture { exposureParameters?.aperture.kernelValue ?? .unknown }
+    public var apertureActual: DronelinkCore.Kernel.CameraAperture { aperture }
     public var whiteBalancePreset: Kernel.CameraWhiteBalancePreset {
         //FIXME whiteBalanceValue?.preset.kernelValue ?? .unknown
         .unknown
