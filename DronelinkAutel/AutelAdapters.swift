@@ -482,18 +482,6 @@ public class AutelGimbalStateAdapter: GimbalStateAdapter {
     }
 }
 
-extension AUTELRemoteController: RemoteControllerAdapter {
-    public func startDeviceCharging(finished: CommandFinished?) {
-    
-    }
-    
-    public func stopDeviceCharging(finished: CommandFinished?) {
-        
-    }
-    
-    public var index: UInt { 0 }
-}
-
 public class AutelRemoteControllerStateAdapter: RemoteControllerStateAdapter {
 
     public let rcHardwareState: AUTELRCHardwareState
