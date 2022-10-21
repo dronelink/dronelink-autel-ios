@@ -302,6 +302,7 @@ extension Kernel.CameraFocusMode {
         case .manual: return .manual
         case .auto: return .AFC //FIXME .auto
         case .autoContinuous: return .AFC
+        case .fineTune: return .unknown
         case .unknown: return .unknown
         }
     }
