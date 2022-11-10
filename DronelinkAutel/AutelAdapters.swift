@@ -40,6 +40,10 @@ public class AutelDroneAdapter: DroneAdapter {
     
     public func gimbal(channel: UInt) -> GimbalAdapter? { channel == 0 ? AutelGimbalAdapter(gimbal: drone.gimbal) : nil }
     
+    public let batteries: [DronelinkCore.BatteryAdapter]? = nil
+    
+    public func battery(channel: UInt) -> DronelinkCore.BatteryAdapter? { nil }
+    
     public func send(velocityCommand: Kernel.VelocityDroneCommand?) {
         guard let velocityCommand = velocityCommand else {
             sendResetVelocityCommand()

@@ -98,6 +98,7 @@ public class AutelDroneSession: NSObject {
         adapter.drone.battery?.delegate = self
         adapter.drone.remoteController?.delegate = self
         adapter.drone.gimbal?.delegate = self
+        adapter.drone.gimbal.setGimbalPitchAngleRange(.type2)
         adapter.drone.camera?.delegate = self
     }
     
@@ -841,6 +842,8 @@ extension AutelDroneSession: DroneSession {
             return nil
         }
     }
+    
+    public func batteryState(index: UInt) -> DronelinkCore.DatedValue<DronelinkCore.BatteryStateAdapter>? { nil }
     
     public func resetPayloads() {
         sendResetGimbalCommands()
