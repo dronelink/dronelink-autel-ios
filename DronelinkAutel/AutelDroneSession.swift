@@ -652,6 +652,7 @@ extension AutelDroneSession: DroneSession {
     public var opened: Date { _opened }
     public var closed: Bool { _closed }
     public var id: String { _id }
+    public var adapterName: String { "autel" }
     public var manufacturer: String { "Autel" }
     public var serialNumber: String? { _serialNumber }
     public var name: String? { nil }
@@ -844,6 +845,8 @@ extension AutelDroneSession: DroneSession {
     }
     
     public func batteryState(index: UInt) -> DronelinkCore.DatedValue<DronelinkCore.BatteryStateAdapter>? { nil }
+    
+    public var rtkState: DronelinkCore.DatedValue<DronelinkCore.RTKStateAdapter>? { nil }
     
     public func resetPayloads() {
         resetPayloads(gimbal: true, camera: true)

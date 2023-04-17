@@ -143,6 +143,16 @@ extension AutelDroneSession {
 //            return nil
 //        }
 //
+//        if let command = flightAssistantCommand as? Kernel.DownwardAvoidanceDroneCommand {
+//            flightAssistant.getDownardVisionObstacleAvoidanceEnabled { (current, error) in
+//                Command.conditionallyExecute(current != command.enabled, error: error, finished: finished) {
+//                    FIXME
+//                }
+//            }
+//            return nil
+//        }
+//
+//
 //        if let command = flightAssistantCommand as? Kernel.LandingProtectionDroneCommand {
 //            flightAssistant.getLandingProtectionEnabled { (current, error) in
 //                Command.conditionallyExecute(current != command.enabled, error: error, finished: finished) {
