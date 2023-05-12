@@ -503,7 +503,6 @@ public class AutelGimbalStateAdapter: GimbalStateAdapter {
 }
 
 public class AutelRemoteControllerStateAdapter: RemoteControllerStateAdapter {
-    
     public let rcHardwareState: AUTELRCHardwareState
 
     public init(rcHardwareState: AUTELRCHardwareState) {
