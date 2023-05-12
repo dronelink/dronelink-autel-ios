@@ -848,6 +848,8 @@ extension AutelDroneSession: DroneSession {
     
     public var rtkState: DronelinkCore.DatedValue<DronelinkCore.RTKStateAdapter>? { nil }
     
+    public var liveStreamingState: DronelinkCore.DatedValue<DronelinkCore.LiveStreamingStateAdapter>? { nil }
+    
     public func resetPayloads() {
         resetPayloads(gimbal: true, camera: true)
     }
@@ -955,4 +957,5 @@ extension AutelDroneSession: DroneStateAdapter {
     
     public var lightbridgeFrequencyBand: Kernel.DroneLightbridgeFrequencyBand? { nil }
     public var ocuSyncFrequencyBand: Kernel.DroneOcuSyncFrequencyBand? { nil }
+    public var auxiliaryLightModeBottom: DronelinkCore.Kernel.DroneAuxiliaryLightMode? { nil }
 }
