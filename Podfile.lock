@@ -1,16 +1,16 @@
 PODS:
-  - DronelinkCore (3.2.0)
+  - DronelinkCore (4.5.0)
 
 DEPENDENCIES:
-  - DronelinkCore (from `../../private/dronelink-core-ios`)
+  - DronelinkCore (~> 4.5.0)
 
-EXTERNAL SOURCES:
-  DronelinkCore:
-    :path: "../../private/dronelink-core-ios"
+SPEC REPOS:
+  trunk:
+    - DronelinkCore
 
 SPEC CHECKSUMS:
-  DronelinkCore: b95e418d8ac8255fbc798202f3164e6dc111234f
+  DronelinkCore: af762ff12b0540ce01d9415630a8543646442450
 
-PODFILE CHECKSUM: d7d60ea9df69bb017be1cd27ac99d4292d40a429
+PODFILE CHECKSUM: 3ac180ecceb2dd3d078600922fefcf323496540f
 
 COCOAPODS: 1.11.2
