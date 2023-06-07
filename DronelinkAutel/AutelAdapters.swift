@@ -405,17 +405,14 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public var meteringMode: DronelinkCore.Kernel.CameraMeteringMode { .unknown }
     public var isAutoExposureLockEnabled: Bool { false }
     public var aspectRatio: Kernel.CameraPhotoAspectRatio { mode == .photo ? ._3x2 : ._16x9 }
-    public var opticalZoomSpecResolved: [String : Int] {
-        //FIXME
-        return [:]
+    public var isZoomSupported: Bool {
+        return false
     }
-    public var opticalZoomValue: Double? {
-        //FIXME
+    public var zoomSpec: DronelinkCore.Kernel.CameraZoomSpec? {
         return nil
     }
-    public func isFeatureSupported(feature: DronelinkCore.Kernel.CameraFeatures) -> Bool {
-        //FIXME return wether optical, hybrid, or digital is supported. See DJICameraStateAdapter.
-        return false
+    public var zoomValue: Double? {
+        return nil
     }
 }
 
