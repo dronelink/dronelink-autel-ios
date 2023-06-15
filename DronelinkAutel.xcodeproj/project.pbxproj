@@ -19,9 +19,9 @@
 		242F5AEC279CB4D300986B5C /* AUTELSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242F5AEB279CB4D300986B5C /* AUTELSDK.xcframework */; };
 		244C7EB2236886E3005DA5D8 /* DronelinkAutel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244C7EB1236886E3005DA5D8 /* DronelinkAutel.swift */; };
 		245227D22367617B00123D75 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245227D12367617B00123D75 /* Extensions.swift */; };
-		245227D52367620900123D75 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 245227D42367620900123D75 /* Localizable.strings */; };
 		246BB8E1236507D600A8E7D7 /* AutelDroneSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BB8E0236507D600A8E7D7 /* AutelDroneSession.swift */; };
 		246BB8EB236710D900A8E7D7 /* AutelDroneSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BB8EA236710D900A8E7D7 /* AutelDroneSessionManager.swift */; };
+		879DB2E82A3B120D002CDDCA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 879DB2E62A3B120D002CDDCA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,13 +48,26 @@
 		242F5AEB279CB4D300986B5C /* AUTELSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AUTELSDK.xcframework; sourceTree = "<group>"; };
 		244C7EB1236886E3005DA5D8 /* DronelinkAutel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronelinkAutel.swift; sourceTree = "<group>"; };
 		245227D12367617B00123D75 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		245227D42367620900123D75 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		246BB8D32364DA5300A8E7D7 /* DronelinkAutel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DronelinkAutel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246BB8D72364DA5300A8E7D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		246BB8E0236507D600A8E7D7 /* AutelDroneSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutelDroneSession.swift; sourceTree = "<group>"; };
 		246BB8EA236710D900A8E7D7 /* AutelDroneSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutelDroneSessionManager.swift; sourceTree = "<group>"; };
 		695112868FF2A04153ECD9E0 /* Pods-DronelinkDJI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronelinkDJI.debug.xcconfig"; path = "Target Support Files/Pods-DronelinkDJI/Pods-DronelinkDJI.debug.xcconfig"; sourceTree = "<group>"; };
 		783BFA1A6B564C440D27C326 /* Pods-DronelinkAutel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronelinkAutel.debug.xcconfig"; path = "Target Support Files/Pods-DronelinkAutel/Pods-DronelinkAutel.debug.xcconfig"; sourceTree = "<group>"; };
+		879DB2E72A3B120D002CDDCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2E92A3B12FF002CDDCA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2EA2A3B130C002CDDCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2EB2A3B1315002CDDCA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2EC2A3B131F002CDDCA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2ED2A3B132C002CDDCA /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2EE2A3B1336002CDDCA /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2EF2A3B1340002CDDCA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2F02A3B1349002CDDCA /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2F12A3B1353002CDDCA /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2F22A3B135D002CDDCA /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2F32A3B1367002CDDCA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2F42A3B136F002CDDCA /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		879DB2F52A3B1377002CDDCA /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D12599568A2594D5DA52674 /* Pods_DronelinkAutel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronelinkAutel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92EDC279B846082407647D1C /* Pods-DronelinkAutel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronelinkAutel.release.xcconfig"; path = "Target Support Files/Pods-DronelinkAutel/Pods-DronelinkAutel.release.xcconfig"; sourceTree = "<group>"; };
 		B6CEDAFE2C1B3CB703B2D885 /* Pods-DronelinkDJI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronelinkDJI.release.xcconfig"; path = "Target Support Files/Pods-DronelinkDJI/Pods-DronelinkDJI.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				242F5AEB279CB4D300986B5C /* AUTELSDK.xcframework */,
-				245227D42367620900123D75 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -103,6 +115,7 @@
 		246BB8D52364DA5300A8E7D7 /* DronelinkAutel */ = {
 			isa = PBXGroup;
 			children = (
+				879DB2E62A3B120D002CDDCA /* Localizable.strings */,
 				242F5AC0279CAE7B00986B5C /* AutelAdapters.swift */,
 				246BB8E0236507D600A8E7D7 /* AutelDroneSession.swift */,
 				246BB8EA236710D900A8E7D7 /* AutelDroneSessionManager.swift */,
@@ -195,6 +208,18 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
+				fr,
+				hi,
+				id,
+				it,
+				pl,
+				pt,
+				ro,
+				ru,
+				sv,
+				ur,
 			);
 			mainGroup = 246BB8C92364DA5300A8E7D7;
 			productRefGroup = 246BB8D42364DA5300A8E7D7 /* Products */;
@@ -211,7 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				245227D52367620900123D75 /* Localizable.strings in Resources */,
+				879DB2E82A3B120D002CDDCA /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +288,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		879DB2E62A3B120D002CDDCA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				879DB2E72A3B120D002CDDCA /* Base */,
+				879DB2E92A3B12FF002CDDCA /* de */,
+				879DB2EA2A3B130C002CDDCA /* en */,
+				879DB2EB2A3B1315002CDDCA /* es */,
+				879DB2EC2A3B131F002CDDCA /* fr */,
+				879DB2ED2A3B132C002CDDCA /* hi */,
+				879DB2EE2A3B1336002CDDCA /* id */,
+				879DB2EF2A3B1340002CDDCA /* it */,
+				879DB2F02A3B1349002CDDCA /* pl */,
+				879DB2F12A3B1353002CDDCA /* pt */,
+				879DB2F22A3B135D002CDDCA /* ro */,
+				879DB2F32A3B1367002CDDCA /* ru */,
+				879DB2F42A3B136F002CDDCA /* sv */,
+				879DB2F52A3B1377002CDDCA /* ur */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		246BB8D92364DA5300A8E7D7 /* Debug */ = {
