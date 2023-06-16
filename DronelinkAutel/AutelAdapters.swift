@@ -408,6 +408,9 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public var isZoomSupported: Bool {
         return false
     }
+    public var isThermalZoomSupported: Bool {
+        return false
+    }
     public var zoomSpec: DronelinkCore.Kernel.CameraZoomSpec? {
         return nil
     }
