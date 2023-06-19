@@ -1,0 +1,272 @@
+# Mission Paused
+MissionDisengageReason.user.disengaged=मिशन रुका हुआ
+
+# Unhandled Command Type
+MissionDisengageReason.command.type.unhandled=बिना क्रिया के कमांड प्रकार
+
+# Drone Disconnected
+MissionDisengageReason.drone.disconnected.title=ड्रोन डिस्कनेक्ट हो गया
+
+# Drone Control Unavailable
+MissionDisengageReason.drone.control.unavailable.title=ड्रोन नियंत्रण अनुपलब्ध
+
+# Telemetry Unavailable
+MissionDisengageReason.telemetry.unavailable.title=टेलीमेट्री अनुपलब्ध
+
+# Weak Signal
+MissionDisengageReason.telemetry.delayed.title=कमजोर संकेत
+
+# • Please point the RC antennas towards the drone.\n• If the signal does not improve, try moving closer to the drone.\n• If the signal still does not improve, move to an area with fewer obstacles or RF interference.
+MissionDisengageReason.telemetry.delayed.details=• कृपया आरसी एंटेना को ड्रोन की ओर इंगित करें।\n• यदि सिग्नल में सुधार नहीं होता है, तो ड्रोन के करीब जाने का प्रयास करें।\n• यदि सिग्नल अभी भी नहीं सुधरता है, तो कम बाधाओं या आरएफ हस्तक्षेप वाले क्षेत्र में जाएं।
+
+# Automatic Control Interrupted
+MissionDisengageReason.drone.control.override.title=स्वचालित नियंत्रण बाधित
+
+# The drone must remain in GPS flight mode for automatic control.
+MissionDisengageReason.drone.control.override.details=स्वचालित नियंत्रण के लिए ड्रोन को जीपीएस उड़ान मोड में रहना चाहिए।
+
+# Unable to Arm Motors
+MissionDisengageReason.arm.motors.failed.title=आर्म मोटर्स में असमर्थ
+
+# Unable to Take Off
+MissionDisengageReason.take.off.failed.title=उतारने में असमर्थ
+
+# Unable to Take Control
+MissionDisengageReason.take.control.failed.title=नियंत्रण करने में असमर्थ
+
+# Execution State Invalid
+MissionDisengageReason.execution.state.invalid.title=निष्पादन स्थिति अमान्य है
+
+# Unable to Load Mission
+MissionDisengageReason.load.mission.failed.title=मिशन लोड करने में असमर्थ
+
+# Unable to Upload Mission
+MissionDisengageReason.upload.mission.failed.title=मिशन अपलोड करने में असमर्थ
+
+# Unable to Start Mission
+MissionDisengageReason.start.mission.failed.title=मिशन प्रारंभ करने में असमर्थ
+
+# Max Altitude Reached
+MissionDisengageReason.drone.max.altitude.title=अधिकतम ऊंचाई पर पहुंच गया
+
+# Increase the max altitude setting to continue.
+MissionDisengageReason.drone.max.altitude.details=जारी रखने के लिए अधिकतम ऊंचाई सेटिंग बढ़ाएँ।
+
+# Max Distance Reached
+MissionDisengageReason.drone.max.distance.title=अधिकतम दूरी पूरी हुई
+
+# Increase the max distance setting to continue.
+MissionDisengageReason.drone.max.distance.details=जारी रखने के लिए अधिकतम दूरी सेटिंग बढ़ाएँ।
+
+# Flight Assistant Unavailable
+MissionDisengageReason.drone.flight.assistant.unavailable.title=उड़ान सहायक अनुपलब्ध
+
+# Landing Gear Unavailable
+MissionDisengageReason.drone.landing.gear.unavailable.title=लैंडिंग गियर अनुपलब्ध
+
+# Lightbridge Link Unavailable
+MissionDisengageReason.drone.lightbridge.unavailable.title=लाइटब्रिज लिंक अनुपलब्ध
+
+# OcuSync Link Unavailable
+MissionDisengageReason.drone.ocusync.unavailable.title=OcuSync लिंक अनुपलब्ध
+
+# Accessories Unavailable
+MissionDisengageReason.drone.accessory.aggregation.unavailable.title=सहायक उपकरण अनुपलब्ध
+
+# Beacon Unavailable
+MissionDisengageReason.drone.beacon.unavailable.title=बीकन अनुपलब्ध
+
+# Spotlight Unavailable
+MissionDisengageReason.drone.spotlight.unavailable.title=स्पॉटलाइट अनुपलब्ध
+
+# Remote Controller Unavailable
+MissionDisengageReason.drone.remote.controller.unavailable.title=दूरस्थ नियंत्रक अनुपलब्ध
+
+# Camera Unavailable
+MissionDisengageReason.drone.camera.unavailable.title=कैमरा अनुपलब्ध
+
+# Lens Unavailable
+MissionDisengageReason.drone.lens.unavailable.title=लेंस अनुपलब्ध
+
+# Gimbal Unavailable
+MissionDisengageReason.drone.gimbal.unavailable.title=गिंबल अनुपलब्ध
+
+# Camera Mode Invalid
+MissionDisengageReason.drone.camera.mode.invalid.title=कैमरा मोड अमान्य
+
+# Telemetry Unavailable
+AutelDroneSession.telemetry.unavailable=टेलीमेट्री अनुपलब्ध
+
+# Unsupported execution engine: %@
+AutelDroneSession.createControlSession.execution.engine.unsupported=असमर्थित निष्पादन इंजन: %@
+
+# Remote controller is unavailable.
+AutelDroneSessionManager.remoteControllerLinking.unavailable=रिमोट कंट्रोलर अनुपलब्ध है।
+
+# Unable to stop compass calibration
+AutelDroneAdapter.stopCompassCalibration.unavailable=कम्पास अंशांकन को रोकने में असमर्थ
+
+# Camera still capturing
+AutelDroneSession+CameraCommand.stop.capture.error=कैमरा अभी भी कैप्चर कर रहा है
+
+# Media File Not Created
+AutelDroneSession+CameraCommand.start.shoot.photo.no.file=मीडिया फ़ाइल नहीं बनाई गई
+
+# Device charging is not available for this remote controller.
+AutelRemoteControllerAdapter.deviceCharging.unavailable=इस रिमोट कंट्रोलर के लिए डिवाइस चार्जिंग उपलब्ध नहीं है।
+
+# GPS Signal Unavailable
+DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title=GPS सिग्नल अनुपलब्ध
+
+# Please wait for a strong GPS signal lock to continue.
+DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details=कृपया जारी रखने के लिए एक मजबूत जीपीएस सिग्नल लॉक की प्रतीक्षा करें।
+
+# Home Location Not Set
+DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title=घर का स्थान निर्धारित नहीं है
+
+# Critically Low Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isLowerThanSeriousBatteryWarningThreshold.title=गंभीर रूप से कम बैटरी
+
+# Low Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isLowerThanBatteryWarningThreshold.title=लो बैटरी
+
+# Max Distance
+DronelinkAutel:AUTELMCSystemState.statusMessages.isReachMaxRange.title=अधिकतम दूरी
+
+# Max Altitude
+DronelinkAutel:AUTELMCSystemState.statusMessages.isReachMaxHeight.title=अधिकतम ऊंचाई
+
+# Compass Error
+DronelinkAutel:AUTELMCSystemState.statusMessages.isCompassError.title=कम्पास त्रुटि
+
+# IMU Preheating
+DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUPreheating.title=आईएमयू प्रीहीटिंग
+
+# IMU Overheated
+DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUOverheated.title=आईएमयू ज़्यादा गरम
+
+# Unknown Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isUnknowBattery.title=अज्ञात बैटरी
+
+# Battery Overheated
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryOverheated.title=बैटरी ज़्यादा गरम
+
+# Battery Voltage Diff
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryVoltageDiff.title=बैटरी वोल्टेज अंतर
+
+# Battery Low Temperature
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryLowTemperature.title=बैटरी कम तापमान
+
+# Model
+AUTELDeviceType.title=नमूना
+
+# X-Star Premium
+AUTELDeviceType.value.0=एक्स-स्टार प्रीमियम
+
+# X-Star
+AUTELDeviceType.value.1=एक्स-स्टार
+
+# EVO I
+AUTELDeviceType.value.2=ईवो आई
+
+# Vivid
+AUTELDeviceType.value.3=जीवंत
+
+#  EVO II
+AUTELDeviceType.value.4= ईवीओ II
+
+# Flight Mode
+AUTELMainControllerFlightMode.title=उड़ान मोड
+
+# Landing
+AUTELMainControllerFlightMode.value.2=अवतरण
+
+# Taking Off
+AUTELMainControllerFlightMode.value.3=निकल रहा हूं
+
+# Returning Home
+AUTELMainControllerFlightMode.value.7=घर लौट रहे
+
+# Returning Home (Low Battery)
+AUTELMainControllerFlightMode.value.8=घर लौटना (कम बैटरी)
+
+# Smart Return Home
+AUTELMainControllerFlightMode.value.9=स्मार्ट रिटर्न होम
+
+# Fail Safe: RTH
+AUTELMainControllerFlightMode.value.10=विफल सुरक्षित: आरटीएच
+
+# Fail Safe: Hover
+AUTELMainControllerFlightMode.value.11=विफल सुरक्षित: होवर करें
+
+# Low Power Warning
+AUTELDroneLowPowerWarning.title=कम बिजली चेतावनी
+
+# Clear
+AUTELDroneLowPowerWarning.value.0=साफ़
+
+# Low Battery
+AUTELDroneLowPowerWarning.value.1=लो बैटरी
+
+# Critical Low Battery
+AUTELDroneLowPowerWarning.value.2=गंभीर कम बैटरी
+
+# Unknown
+AUTELDroneLowPowerWarning.value.255=अज्ञात
+
+# NFZ
+AUTELMainControllerNoFlyStatus.title=एनएफजेड
+
+# Clear
+AUTELMainControllerNoFlyStatus.value.0=साफ़
+
+# Approaching Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.1=उड़ान-प्रतिबंधित क्षेत्र के निकट
+
+# Arrived at Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.2=उड़ान-प्रतिबंधित क्षेत्र में पहुंचे
+
+# Max altitude reached in Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.3=अधिकतम ऊंचाई उड़ान-प्रतिबंधित क्षेत्र में पहुंच गई
+
+# Entering No-Fly Zone
+AUTELMainControllerNoFlyStatus.value.4=नो-फ्लाई जोन में प्रवेश
+
+# Entering No-Fly Zone
+AUTELMainControllerNoFlyStatus.value.5=नो-फ्लाई जोन में प्रवेश
+
+# Unknown
+AUTELMainControllerNoFlyStatus.value.255=अज्ञात
+
+# Compass Calibration
+AUTELCompassCalibrationStatus.title=कम्पास अंशांकन
+
+# None
+AUTELCompassCalibrationStatus.value.0=कोई नहीं
+
+# Rotate 360 Horizontally
+AUTELCompassCalibrationStatus.value.1=360 क्षैतिज घुमाएँ
+
+# Rotate 360 Vertically
+AUTELCompassCalibrationStatus.value.2=360 लंबवत घुमाएँ
+
+# Step 3
+AUTELCompassCalibrationStatus.value.3=चरण 3
+
+# Calculating
+AUTELCompassCalibrationStatus.value.4=गिना जा रहा है
+
+# Finished
+AUTELCompassCalibrationStatus.value.5=खत्म
+
+# Failed
+AUTELCompassCalibrationStatus.value.6=असफल
+
+# Failed - No GPS
+AUTELCompassCalibrationStatus.value.7=विफल - कोई GPS नहीं
+
+# Timeout
+AUTELCompassCalibrationStatus.value.8=समय समाप्त
+
+# Unknown
+AUTELCompassCalibrationStatus.value.255=अज्ञात

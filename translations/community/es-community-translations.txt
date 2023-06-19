@@ -1,0 +1,272 @@
+# Mission Paused
+MissionDisengageReason.user.disengaged=Misión en pausa
+
+# Unhandled Command Type
+MissionDisengageReason.command.type.unhandled=Tipo de comando no controlado
+
+# Drone Disconnected
+MissionDisengageReason.drone.disconnected.title=Dron desconectado
+
+# Drone Control Unavailable
+MissionDisengageReason.drone.control.unavailable.title=Control de drones no disponible
+
+# Telemetry Unavailable
+MissionDisengageReason.telemetry.unavailable.title=Telemetría no disponible
+
+# Weak Signal
+MissionDisengageReason.telemetry.delayed.title=Señal débil
+
+# • Please point the RC antennas towards the drone.\n• If the signal does not improve, try moving closer to the drone.\n• If the signal still does not improve, move to an area with fewer obstacles or RF interference.
+MissionDisengageReason.telemetry.delayed.details=• Dirija las antenas RC hacia el dron.\n• Si la señal no mejora, intente acercarse al dron.\n• Si la señal sigue sin mejorar, muévase a un área con menos obstáculos o interferencias de radiofrecuencia.
+
+# Automatic Control Interrupted
+MissionDisengageReason.drone.control.override.title=Control automático interrumpido
+
+# The drone must remain in GPS flight mode for automatic control.
+MissionDisengageReason.drone.control.override.details=El dron debe permanecer en modo de vuelo GPS para el control automático.
+
+# Unable to Arm Motors
+MissionDisengageReason.arm.motors.failed.title=No se pueden armar los motores
+
+# Unable to Take Off
+MissionDisengageReason.take.off.failed.title=Incapaz de despegar
+
+# Unable to Take Control
+MissionDisengageReason.take.control.failed.title=Incapaz de tomar el control
+
+# Execution State Invalid
+MissionDisengageReason.execution.state.invalid.title=Estado de ejecución no válido
+
+# Unable to Load Mission
+MissionDisengageReason.load.mission.failed.title=No se puede cargar la misión
+
+# Unable to Upload Mission
+MissionDisengageReason.upload.mission.failed.title=No se puede cargar la misión
+
+# Unable to Start Mission
+MissionDisengageReason.start.mission.failed.title=No se puede iniciar la misión
+
+# Max Altitude Reached
+MissionDisengageReason.drone.max.altitude.title=Altitud máxima alcanzada
+
+# Increase the max altitude setting to continue.
+MissionDisengageReason.drone.max.altitude.details=Aumente el ajuste de altitud máxima para continuar.
+
+# Max Distance Reached
+MissionDisengageReason.drone.max.distance.title=Distancia máxima alcanzada
+
+# Increase the max distance setting to continue.
+MissionDisengageReason.drone.max.distance.details=Aumente la configuración de distancia máxima para continuar.
+
+# Flight Assistant Unavailable
+MissionDisengageReason.drone.flight.assistant.unavailable.title=Asistente de vuelo no disponible
+
+# Landing Gear Unavailable
+MissionDisengageReason.drone.landing.gear.unavailable.title=Tren de aterrizaje no disponible
+
+# Lightbridge Link Unavailable
+MissionDisengageReason.drone.lightbridge.unavailable.title=Enlace Lightbridge no disponible
+
+# OcuSync Link Unavailable
+MissionDisengageReason.drone.ocusync.unavailable.title=Enlace de OcuSync no disponible
+
+# Accessories Unavailable
+MissionDisengageReason.drone.accessory.aggregation.unavailable.title=Accesorios no disponibles
+
+# Beacon Unavailable
+MissionDisengageReason.drone.beacon.unavailable.title=Baliza no disponible
+
+# Spotlight Unavailable
+MissionDisengageReason.drone.spotlight.unavailable.title=Foco no disponible
+
+# Remote Controller Unavailable
+MissionDisengageReason.drone.remote.controller.unavailable.title=Mando a distancia no disponible
+
+# Camera Unavailable
+MissionDisengageReason.drone.camera.unavailable.title=Cámara no disponible
+
+# Lens Unavailable
+MissionDisengageReason.drone.lens.unavailable.title=Lente no disponible
+
+# Gimbal Unavailable
+MissionDisengageReason.drone.gimbal.unavailable.title=cardán no disponible
+
+# Camera Mode Invalid
+MissionDisengageReason.drone.camera.mode.invalid.title=Modo de cámara no válido
+
+# Telemetry Unavailable
+AutelDroneSession.telemetry.unavailable=Telemetría no disponible
+
+# Unsupported execution engine: %@
+AutelDroneSession.createControlSession.execution.engine.unsupported=Motor de ejecución no compatible: %@
+
+# Remote controller is unavailable.
+AutelDroneSessionManager.remoteControllerLinking.unavailable=El control remoto no está disponible.
+
+# Unable to stop compass calibration
+AutelDroneAdapter.stopCompassCalibration.unavailable=No se puede detener la calibración de la brújula
+
+# Camera still capturing
+AutelDroneSession+CameraCommand.stop.capture.error=La cámara sigue capturando
+
+# Media File Not Created
+AutelDroneSession+CameraCommand.start.shoot.photo.no.file=Archivo multimedia no creado
+
+# Device charging is not available for this remote controller.
+AutelRemoteControllerAdapter.deviceCharging.unavailable=La carga del dispositivo no está disponible para este control remoto.
+
+# GPS Signal Unavailable
+DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title=Señal GPS no disponible
+
+# Please wait for a strong GPS signal lock to continue.
+DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details=Espere a que se produzca un bloqueo de señal de GPS fuerte para continuar.
+
+# Home Location Not Set
+DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title=Ubicación de la casa no establecida
+
+# Critically Low Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isLowerThanSeriousBatteryWarningThreshold.title=Batería críticamente baja
+
+# Low Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isLowerThanBatteryWarningThreshold.title=Batería baja
+
+# Max Distance
+DronelinkAutel:AUTELMCSystemState.statusMessages.isReachMaxRange.title=Distancia maxima
+
+# Max Altitude
+DronelinkAutel:AUTELMCSystemState.statusMessages.isReachMaxHeight.title=Altitud máxima
+
+# Compass Error
+DronelinkAutel:AUTELMCSystemState.statusMessages.isCompassError.title=Error de brújula
+
+# IMU Preheating
+DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUPreheating.title=Precalentamiento de IMU
+
+# IMU Overheated
+DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUOverheated.title=IMU sobrecalentada
+
+# Unknown Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isUnknowBattery.title=Batería desconocida
+
+# Battery Overheated
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryOverheated.title=Batería sobrecalentada
+
+# Battery Voltage Diff
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryVoltageDiff.title=Diferencia de voltaje de la batería
+
+# Battery Low Temperature
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryLowTemperature.title=Temperatura baja de la batería
+
+# Model
+AUTELDeviceType.title=Modelo
+
+# X-Star Premium
+AUTELDeviceType.value.0=X-Estrella Premium
+
+# X-Star
+AUTELDeviceType.value.1=X-estrella
+
+# EVO I
+AUTELDeviceType.value.2=EVO yo
+
+# Vivid
+AUTELDeviceType.value.3=Vívido
+
+#  EVO II
+AUTELDeviceType.value.4= EVO II
+
+# Flight Mode
+AUTELMainControllerFlightMode.title=Modo vuelo
+
+# Landing
+AUTELMainControllerFlightMode.value.2=Aterrizaje
+
+# Taking Off
+AUTELMainControllerFlightMode.value.3=Despegando
+
+# Returning Home
+AUTELMainControllerFlightMode.value.7=Volviendo a casa
+
+# Returning Home (Low Battery)
+AUTELMainControllerFlightMode.value.8=Regreso a casa (batería baja)
+
+# Smart Return Home
+AUTELMainControllerFlightMode.value.9=Regreso a casa inteligente
+
+# Fail Safe: RTH
+AUTELMainControllerFlightMode.value.10=A prueba de fallas: RTH
+
+# Fail Safe: Hover
+AUTELMainControllerFlightMode.value.11=A prueba de fallas: Pase el mouse
+
+# Low Power Warning
+AUTELDroneLowPowerWarning.title=Advertencia de bajo consumo
+
+# Clear
+AUTELDroneLowPowerWarning.value.0=Claro
+
+# Low Battery
+AUTELDroneLowPowerWarning.value.1=Batería baja
+
+# Critical Low Battery
+AUTELDroneLowPowerWarning.value.2=Batería baja crítica
+
+# Unknown
+AUTELDroneLowPowerWarning.value.255=Desconocido
+
+# NFZ
+AUTELMainControllerNoFlyStatus.title=ZNF
+
+# Clear
+AUTELMainControllerNoFlyStatus.value.0=Claro
+
+# Approaching Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.1=Acercándose a la zona de vuelo restringido
+
+# Arrived at Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.2=Llegó a la zona de vuelo restringido
+
+# Max altitude reached in Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.3=Altitud máxima alcanzada en zona de vuelo restringido
+
+# Entering No-Fly Zone
+AUTELMainControllerNoFlyStatus.value.4=Entrar en la zona de exclusión aérea
+
+# Entering No-Fly Zone
+AUTELMainControllerNoFlyStatus.value.5=Entrar en la zona de exclusión aérea
+
+# Unknown
+AUTELMainControllerNoFlyStatus.value.255=Desconocido
+
+# Compass Calibration
+AUTELCompassCalibrationStatus.title=Calibración de la brújula
+
+# None
+AUTELCompassCalibrationStatus.value.0=Ninguno
+
+# Rotate 360 Horizontally
+AUTELCompassCalibrationStatus.value.1=Rotar 360 horizontalmente
+
+# Rotate 360 Vertically
+AUTELCompassCalibrationStatus.value.2=Rotar 360 verticalmente
+
+# Step 3
+AUTELCompassCalibrationStatus.value.3=Paso 3
+
+# Calculating
+AUTELCompassCalibrationStatus.value.4=Calculador
+
+# Finished
+AUTELCompassCalibrationStatus.value.5=Finalizado
+
+# Failed
+AUTELCompassCalibrationStatus.value.6=Fallido
+
+# Failed - No GPS
+AUTELCompassCalibrationStatus.value.7=Error - Sin GPS
+
+# Timeout
+AUTELCompassCalibrationStatus.value.8=Se acabó el tiempo
+
+# Unknown
+AUTELCompassCalibrationStatus.value.255=Desconocido

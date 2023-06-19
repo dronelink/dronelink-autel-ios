@@ -1,0 +1,272 @@
+# Mission Paused
+MissionDisengageReason.user.disengaged=Uppdraget pausat
+
+# Unhandled Command Type
+MissionDisengageReason.command.type.unhandled=Obehandlad kommandotyp
+
+# Drone Disconnected
+MissionDisengageReason.drone.disconnected.title=Drönare frånkopplad
+
+# Drone Control Unavailable
+MissionDisengageReason.drone.control.unavailable.title=Drönarkontroll ej tillgänglig
+
+# Telemetry Unavailable
+MissionDisengageReason.telemetry.unavailable.title=Telemetri inte tillgänglig
+
+# Weak Signal
+MissionDisengageReason.telemetry.delayed.title=Svag signal
+
+# • Please point the RC antennas towards the drone.\n• If the signal does not improve, try moving closer to the drone.\n• If the signal still does not improve, move to an area with fewer obstacles or RF interference.
+MissionDisengageReason.telemetry.delayed.details=• Rikta RC-antennerna mot drönaren.\n• Om signalen inte förbättras, försök att flytta närmare drönaren.\n• Om signalen fortfarande inte förbättras, flytta till ett område med färre hinder eller RF-störningar.
+
+# Automatic Control Interrupted
+MissionDisengageReason.drone.control.override.title=Automatisk kontroll avbruten
+
+# The drone must remain in GPS flight mode for automatic control.
+MissionDisengageReason.drone.control.override.details=Drönaren måste förbli i GPS-flygläge för automatisk kontroll.
+
+# Unable to Arm Motors
+MissionDisengageReason.arm.motors.failed.title=Kan inte aktivera motorer
+
+# Unable to Take Off
+MissionDisengageReason.take.off.failed.title=Kan inte lyfta
+
+# Unable to Take Control
+MissionDisengageReason.take.control.failed.title=Kan inte ta kontroll
+
+# Execution State Invalid
+MissionDisengageReason.execution.state.invalid.title=Utförandestat ogiltig
+
+# Unable to Load Mission
+MissionDisengageReason.load.mission.failed.title=Det gick inte att ladda uppdrag
+
+# Unable to Upload Mission
+MissionDisengageReason.upload.mission.failed.title=Det gick inte att ladda upp uppdrag
+
+# Unable to Start Mission
+MissionDisengageReason.start.mission.failed.title=Det gick inte att starta uppdraget
+
+# Max Altitude Reached
+MissionDisengageReason.drone.max.altitude.title=Maxhöjd uppnådd
+
+# Increase the max altitude setting to continue.
+MissionDisengageReason.drone.max.altitude.details=Öka maxhöjdinställningen för att fortsätta.
+
+# Max Distance Reached
+MissionDisengageReason.drone.max.distance.title=Max nått avstånd
+
+# Increase the max distance setting to continue.
+MissionDisengageReason.drone.max.distance.details=Öka maxavståndsinställningen för att fortsätta.
+
+# Flight Assistant Unavailable
+MissionDisengageReason.drone.flight.assistant.unavailable.title=Flight Assistant ej tillgänglig
+
+# Landing Gear Unavailable
+MissionDisengageReason.drone.landing.gear.unavailable.title=Landningsställ ej tillgängligt
+
+# Lightbridge Link Unavailable
+MissionDisengageReason.drone.lightbridge.unavailable.title=Lightbridge-länken är inte tillgänglig
+
+# OcuSync Link Unavailable
+MissionDisengageReason.drone.ocusync.unavailable.title=OcuSync-länk är inte tillgänglig
+
+# Accessories Unavailable
+MissionDisengageReason.drone.accessory.aggregation.unavailable.title=Tillbehör ej tillgängliga
+
+# Beacon Unavailable
+MissionDisengageReason.drone.beacon.unavailable.title=Beacon ej tillgänglig
+
+# Spotlight Unavailable
+MissionDisengageReason.drone.spotlight.unavailable.title=Spotlight ej tillgänglig
+
+# Remote Controller Unavailable
+MissionDisengageReason.drone.remote.controller.unavailable.title=Fjärrkontroll ej tillgänglig
+
+# Camera Unavailable
+MissionDisengageReason.drone.camera.unavailable.title=Kameran är inte tillgänglig
+
+# Lens Unavailable
+MissionDisengageReason.drone.lens.unavailable.title=Objektivet är inte tillgängligt
+
+# Gimbal Unavailable
+MissionDisengageReason.drone.gimbal.unavailable.title=Gimbal ej tillgänglig
+
+# Camera Mode Invalid
+MissionDisengageReason.drone.camera.mode.invalid.title=Kameraläge ogiltigt
+
+# Telemetry Unavailable
+AutelDroneSession.telemetry.unavailable=Telemetri inte tillgänglig
+
+# Unsupported execution engine: %@
+AutelDroneSession.createControlSession.execution.engine.unsupported=Utförandemotor som inte stöds: %@
+
+# Remote controller is unavailable.
+AutelDroneSessionManager.remoteControllerLinking.unavailable=Fjärrkontrollen är inte tillgänglig.
+
+# Unable to stop compass calibration
+AutelDroneAdapter.stopCompassCalibration.unavailable=Det gick inte att stoppa kompasskalibreringen
+
+# Camera still capturing
+AutelDroneSession+CameraCommand.stop.capture.error=Kameran fotograferar fortfarande
+
+# Media File Not Created
+AutelDroneSession+CameraCommand.start.shoot.photo.no.file=Mediafilen har inte skapats
+
+# Device charging is not available for this remote controller.
+AutelRemoteControllerAdapter.deviceCharging.unavailable=Enhetsladdning är inte tillgänglig för denna fjärrkontroll.
+
+# GPS Signal Unavailable
+DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title=GPS-signal ej tillgänglig
+
+# Please wait for a strong GPS signal lock to continue.
+DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details=Vänta tills ett starkt GPS-signallås fortsätter.
+
+# Home Location Not Set
+DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title=Hemplats ej angiven
+
+# Critically Low Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isLowerThanSeriousBatteryWarningThreshold.title=Kritiskt lågt batteri
+
+# Low Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isLowerThanBatteryWarningThreshold.title=Låg batterinivå
+
+# Max Distance
+DronelinkAutel:AUTELMCSystemState.statusMessages.isReachMaxRange.title=Max avstånd
+
+# Max Altitude
+DronelinkAutel:AUTELMCSystemState.statusMessages.isReachMaxHeight.title=Max höjd
+
+# Compass Error
+DronelinkAutel:AUTELMCSystemState.statusMessages.isCompassError.title=Kompassfel
+
+# IMU Preheating
+DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUPreheating.title=IMU förvärmning
+
+# IMU Overheated
+DronelinkAutel:AUTELMCSystemState.statusMessages.isIMUOverheated.title=IMU överhettad
+
+# Unknown Battery
+DronelinkAutel:AUTELMCSystemState.statusMessages.isUnknowBattery.title=Okänt batteri
+
+# Battery Overheated
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryOverheated.title=Batteri överhettat
+
+# Battery Voltage Diff
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryVoltageDiff.title=Batterispänningsdiff
+
+# Battery Low Temperature
+DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryLowTemperature.title=Batteri låg temperatur
+
+# Model
+AUTELDeviceType.title=Modell
+
+# X-Star Premium
+AUTELDeviceType.value.0=X-Star Premium
+
+# X-Star
+AUTELDeviceType.value.1=X-Star
+
+# EVO I
+AUTELDeviceType.value.2=EVO I
+
+# Vivid
+AUTELDeviceType.value.3=Levande
+
+#  EVO II
+AUTELDeviceType.value.4= EVO II
+
+# Flight Mode
+AUTELMainControllerFlightMode.title=Flygläge
+
+# Landing
+AUTELMainControllerFlightMode.value.2=Landning
+
+# Taking Off
+AUTELMainControllerFlightMode.value.3=Ta av
+
+# Returning Home
+AUTELMainControllerFlightMode.value.7=Återvänder hem
+
+# Returning Home (Low Battery)
+AUTELMainControllerFlightMode.value.8=Återvänder hem (lågt batteri)
+
+# Smart Return Home
+AUTELMainControllerFlightMode.value.9=Smart Return Home
+
+# Fail Safe: RTH
+AUTELMainControllerFlightMode.value.10=Fail Safe: RTH
+
+# Fail Safe: Hover
+AUTELMainControllerFlightMode.value.11=Fail Safe: Håll muspekaren
+
+# Low Power Warning
+AUTELDroneLowPowerWarning.title=Varning för låg effekt
+
+# Clear
+AUTELDroneLowPowerWarning.value.0=Klar
+
+# Low Battery
+AUTELDroneLowPowerWarning.value.1=Låg batterinivå
+
+# Critical Low Battery
+AUTELDroneLowPowerWarning.value.2=Kritiskt lågt batteri
+
+# Unknown
+AUTELDroneLowPowerWarning.value.255=Okänd
+
+# NFZ
+AUTELMainControllerNoFlyStatus.title=NFZ
+
+# Clear
+AUTELMainControllerNoFlyStatus.value.0=Klar
+
+# Approaching Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.1=Närmar sig flygbegränsad zon
+
+# Arrived at Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.2=Anlände till Flight-Restricted Zone
+
+# Max altitude reached in Flight-Restricted Zone
+AUTELMainControllerNoFlyStatus.value.3=Maxhöjd uppnådd i flygbegränsad zon
+
+# Entering No-Fly Zone
+AUTELMainControllerNoFlyStatus.value.4=Går in i flygförbudszonen
+
+# Entering No-Fly Zone
+AUTELMainControllerNoFlyStatus.value.5=Går in i flygförbudszonen
+
+# Unknown
+AUTELMainControllerNoFlyStatus.value.255=Okänd
+
+# Compass Calibration
+AUTELCompassCalibrationStatus.title=Kompasskalibrering
+
+# None
+AUTELCompassCalibrationStatus.value.0=Ingen
+
+# Rotate 360 Horizontally
+AUTELCompassCalibrationStatus.value.1=Rotera 360 horisontellt
+
+# Rotate 360 Vertically
+AUTELCompassCalibrationStatus.value.2=Rotera 360 vertikalt
+
+# Step 3
+AUTELCompassCalibrationStatus.value.3=Steg 3
+
+# Calculating
+AUTELCompassCalibrationStatus.value.4=Beräknande
+
+# Finished
+AUTELCompassCalibrationStatus.value.5=Färdiga
+
+# Failed
+AUTELCompassCalibrationStatus.value.6=Misslyckades
+
+# Failed - No GPS
+AUTELCompassCalibrationStatus.value.7=Misslyckades - Ingen GPS
+
+# Timeout
+AUTELCompassCalibrationStatus.value.8=Paus
+
+# Unknown
+AUTELCompassCalibrationStatus.value.255=Okänd
