@@ -405,16 +405,13 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public var meteringMode: DronelinkCore.Kernel.CameraMeteringMode { .unknown }
     public var isAutoExposureLockEnabled: Bool { false }
     public var aspectRatio: Kernel.CameraPhotoAspectRatio { mode == .photo ? ._3x2 : ._16x9 }
-    public var isZoomSupported: Bool {
+    public var isPercentZoomSupported: Bool {
         return false
     }
-    public var isThermalZoomSupported: Bool {
+    public var isRatioZoomSupported: Bool {
         return false
     }
-    public var zoomSpec: DronelinkCore.Kernel.CameraZoomSpec? {
-        return nil
-    }
-    public var zoomValue: Double? {
+    public var zoomSpec: DronelinkCore.Kernel.PercentZoomSpec? {
         return nil
     }
 }
