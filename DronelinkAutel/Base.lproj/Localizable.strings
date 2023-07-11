@@ -1,9 +1,9 @@
 //
-//  Localizable.strings
-//  DronelinkAutel
+// Localizable.strings
+// dronelink-autel-ios - Locale: en
 //
-//  Created by Jim McAndrew on 1/22/22.
-//  Copyright © 2022 Dronelink. All rights reserved.
+// Created by 'dronelink-translations' on Tue Jul 11 2023.
+// Copyright © 2023 Dronelink. All rights reserved.
 //
 "MissionDisengageReason.user.disengaged" = "Mission Paused";
 "MissionDisengageReason.command.type.unhandled" = "Unhandled Command Type";
@@ -37,19 +37,13 @@
 "MissionDisengageReason.drone.lens.unavailable.title" = "Lens Unavailable";
 "MissionDisengageReason.drone.gimbal.unavailable.title" = "Gimbal Unavailable";
 "MissionDisengageReason.drone.camera.mode.invalid.title" = "Camera Mode Invalid";
-
 "AutelDroneSession.telemetry.unavailable" = "Telemetry Unavailable";
 "AutelDroneSession.createControlSession.execution.engine.unsupported" = "Unsupported execution engine: %@";
-
 "AutelDroneSessionManager.remoteControllerLinking.unavailable" = "Remote controller is unavailable.";
-
 "AutelDroneAdapter.stopCompassCalibration.unavailable" = "Unable to stop compass calibration";
-
 "AutelDroneSession+CameraCommand.stop.capture.error" = "Camera still capturing";
 "AutelDroneSession+CameraCommand.start.shoot.photo.no.file" = "Media File Not Created";
-
 "AutelRemoteControllerAdapter.deviceCharging.unavailable" = "Device charging is not available for this remote controller.";
-
 "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.title" = "GPS Signal Unavailable";
 "DronelinkAutel:AUTELMCSystemState.statusMessages.locationUnavailable.details" = "Please wait for a strong GPS signal lock to continue.";
 "DronelinkAutel:AUTELMCSystemState.statusMessages.homeLocationNotSet.title" = "Home Location Not Set";
@@ -64,14 +58,12 @@
 "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryOverheated.title" = "Battery Overheated";
 "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryVoltageDiff.title" = "Battery Voltage Diff";
 "DronelinkAutel:AUTELMCSystemState.statusMessages.isBatteryLowTemperature.title" = "Battery Low Temperature";
-
 "AUTELDeviceType.title" = "Model";
 "AUTELDeviceType.value.0" = "X-Star Premium";
 "AUTELDeviceType.value.1" = "X-Star";
 "AUTELDeviceType.value.2" = "EVO I";
 "AUTELDeviceType.value.3" = "Vivid";
 "AUTELDeviceType.value.4" = " EVO II";
-
 "AUTELMainControllerFlightMode.title" = "Flight Mode";
 "AUTELMainControllerFlightMode.value.2" = "Landing";
 "AUTELMainControllerFlightMode.value.3" = "Taking Off";
@@ -80,13 +72,11 @@
 "AUTELMainControllerFlightMode.value.9" = "Smart Return Home";
 "AUTELMainControllerFlightMode.value.10" = "Fail Safe: RTH";
 "AUTELMainControllerFlightMode.value.11" = "Fail Safe: Hover";
-
 "AUTELDroneLowPowerWarning.title" = "Low Power Warning";
 "AUTELDroneLowPowerWarning.value.0" = "Clear";
 "AUTELDroneLowPowerWarning.value.1" = "Low Battery";
 "AUTELDroneLowPowerWarning.value.2" = "Critical Low Battery";
 "AUTELDroneLowPowerWarning.value.255" = "Unknown";
-
 "AUTELMainControllerNoFlyStatus.title" = "NFZ";
 "AUTELMainControllerNoFlyStatus.value.0" = "Clear";
 "AUTELMainControllerNoFlyStatus.value.1" = "Approaching Flight-Restricted Zone";
@@ -95,7 +85,6 @@
 "AUTELMainControllerNoFlyStatus.value.4" = "Entering No-Fly Zone";
 "AUTELMainControllerNoFlyStatus.value.5" = "Entering No-Fly Zone";
 "AUTELMainControllerNoFlyStatus.value.255" = "Unknown";
-
 "AUTELCompassCalibrationStatus.title" = "Compass Calibration";
 "AUTELCompassCalibrationStatus.value.0" = "None";
 "AUTELCompassCalibrationStatus.value.1" = "Rotate 360 Horizontally";
