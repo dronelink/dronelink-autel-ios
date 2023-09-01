@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = "DronelinkAutel/Resources/AUTELSDK.xcframework"
   s.resources = "DronelinkAutel/**/*.{strings}"
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
-  s.dependency "DronelinkCore", "~> 4.7.0"
+  s.dependency "DronelinkCore", "~> 4.8.0"
 end

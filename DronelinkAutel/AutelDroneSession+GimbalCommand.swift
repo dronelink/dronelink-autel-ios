@@ -52,13 +52,13 @@ extension AutelDroneSession {
                 gimbal.rotate(with: rotation, withCompletion: finished)
             }
             else {
-                return "FIXME"
+                return "MissionDisengageReason.command.type.unsupported".localized
             }
             return nil
         }
         
         if let _ = gimbalCommand as? Kernel.YawSimultaneousFollowGimbalCommand {
-            return "FIXME"
+            return "MissionDisengageReason.command.type.unsupported".localized
         }
         
         return "MissionDisengageReason.command.type.unhandled".localized

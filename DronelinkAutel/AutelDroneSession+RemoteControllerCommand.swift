@@ -10,7 +10,7 @@ import os
 
 extension AutelDroneSession {
     func execute(remoteControllerCommand: KernelRemoteControllerCommand, finished: @escaping CommandFinished) -> Error? {
-        //FIXME
+        //TODO
 //        guard
 //            let remoteController = adapter.drone.remoteController(channel: remoteControllerCommand.channel)
 //        else {

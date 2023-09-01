@@ -95,7 +95,7 @@ extension AUTELCameraWorkMode {
         case .recordVideoLooping: return nil
         case .captureMovingTimeLapse: return .timeLapse
         case .captureHDR: return .hdr
-        case .captureMFNR: return .unknown //FIXME
+        case .captureMFNR: return .unknown
         case .unknown: return .unknown
         @unknown default: return .unknown
         }
@@ -300,7 +300,7 @@ extension Kernel.CameraFocusMode {
     var autelValue: AUTELCameraLensFocusMode {
         switch self {
         case .manual: return .manual
-        case .auto: return .AFC //FIXME .auto
+        case .auto: return .AFC
         case .autoContinuous: return .AFC
         case .fineTune: return .unknown
         case .unknown: return .unknown
@@ -350,7 +350,7 @@ extension Kernel.CameraISO {
 extension AUTELCameraShutterSpeed {
     var kernelValue: Kernel.CameraShutterSpeed {
         switch self {
-        case .speed1_10000: return .unknown //FIXME
+        case .speed1_10000: return .unknown
         case .speed1_8000: return ._1_8000
         case .speed1_6000: return ._1_6000
         case .speed1_5000: return ._1_5000
@@ -639,7 +639,7 @@ extension AUTELDroneGimbalWorkMode {
         case .GimbalAttitudMode: return .free
         case .GimbalFpvMode: return .fpv
         case .GimbalYawFollowMode: return .yawFollow
-        case .GimbalPanoramaMode: return .unknown //FIXME
+        case .GimbalPanoramaMode: return .unknown
         case .GimbalWorkModeUnknown: return .unknown
         @unknown default: return .unknown
         }
@@ -666,7 +666,7 @@ extension AUTELRCHardwareLeftWheel {
 }
 
 extension AUTELRCMultiPurposeButtonState {
-    //FIXME not working?
+    //TODO not working?
     var pressed: Bool {
         switch self {
         case .RCMultiPurposeButtonUp: return false

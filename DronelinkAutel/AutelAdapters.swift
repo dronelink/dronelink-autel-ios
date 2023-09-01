@@ -348,56 +348,24 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     public var storageRemainingPhotos: Int? { storageState?.availableCaptureCount }
     public var mode: Kernel.CameraMode { systemState.mode.kernelValue }
     public var photoMode: Kernel.CameraPhotoMode? { systemState.mode.kernelValuePhotoMode }
-    public var photoInterval: Int? {
-        nil //FIXME
-    }
-    public var photoFileFormat: Kernel.CameraPhotoFileFormat {
-        .unknown //FIXME
-    }
-    public var burstCount: Kernel.CameraBurstCount? {
-        //FIXME burstCountValue?.kernelValue
-        nil
-    }
-    public var aebCount: Kernel.CameraAEBCount? {
-        //FIXME aebCountValue?.kernelValue
-        nil
-    }
-    public var videoFileFormat: Kernel.CameraVideoFileFormat {
-        .unknown //FIXME
-    }
-    
-    public var videoFrameRate: Kernel.CameraVideoFrameRate {
-        .unknown //FIXME
-    }
-    
-    public var videoResolution: Kernel.CameraVideoResolution {
-        .unknown //FIXME
-    }
-    
+    public var photoInterval: Int? { nil } //TODO
+    public var photoFileFormat: Kernel.CameraPhotoFileFormat { .unknown } //TODO
+    public var burstCount: Kernel.CameraBurstCount? { nil } //TODO
+    public var aebCount: Kernel.CameraAEBCount? { nil } //TODO
+    public var videoFileFormat: Kernel.CameraVideoFileFormat { .unknown } //TODO
+    public var videoFrameRate: Kernel.CameraVideoFrameRate { .unknown } //TODO
+    public var videoResolution: Kernel.CameraVideoResolution { .unknown } //TODO
     public var currentVideoTime: Double? { systemState.currentVideoTime }
     public var exposureMode: Kernel.CameraExposureMode { _exposureMode?.kernelValue ?? .unknown }
     public var exposureCompensation: Kernel.CameraExposureCompensation { exposureParameters?.exposureCompensation.kernelValue ?? .unknown }
     public var iso: Kernel.CameraISO { exposureParameters?.iso.kernelValue ?? .unknown }
-    public var isoActual: Int? {
-        //FIXME
-//        guard let exposureSettingsISO = exposureSettings?.ISO else { return nil }
-//        return Int(exposureSettingsISO)
-        nil
-    }
+    public var isoActual: Int? { nil } //TODO
     public var shutterSpeed: Kernel.CameraShutterSpeed { exposureParameters?.shutterSpeed.kernelValue ?? .unknown }
     public var shutterSpeedActual: Kernel.CameraShutterSpeed? { shutterSpeed }
     public var aperture: Kernel.CameraAperture { exposureParameters?.aperture.kernelValue ?? .unknown }
     public var apertureActual: DronelinkCore.Kernel.CameraAperture { aperture }
-    public var whiteBalancePreset: Kernel.CameraWhiteBalancePreset {
-        //FIXME whiteBalanceValue?.preset.kernelValue ?? .unknown
-        .unknown
-    }
-    public var whiteBalanceColorTemperature: Int? {
-        //FIXME
-//        guard let colorTemperature = whiteBalanceValue?.colorTemperature else { return nil }
-//        return Int(colorTemperature) * 100
-        nil
-    }
+    public var whiteBalancePreset: Kernel.CameraWhiteBalancePreset { .unknown } //TODO
+    public var whiteBalanceColorTemperature: Int? { nil } //TODO
     public var lensDetails: String? { nil }
     public var focusMode: DronelinkCore.Kernel.CameraFocusMode { _focusMode?.kernelValue ?? .unknown }
     public var focusRingValue: Double? { nil }
@@ -430,7 +398,7 @@ public class AutelGimbalAdapter: GimbalAdapter {
     }
     
     public func reset() {
-        //FIXME absoluteAngle seems to have no affect
+        //TODO absoluteAngle seems to have no affect
         if let rotation = AUTELGimbalRotation(pitchValue: 0, rollValue: 0, yawValue: nil, mode: .absoluteAngle) {
             gimbal.setGimbalWorkMode(.GimbalYawFollowMode) { [weak self] error in
                 self?.gimbal.rotate(with: rotation)
@@ -481,7 +449,7 @@ public class AutelGimbalStateAdapter: GimbalStateAdapter {
         self.gimbalState = gimbalState
     }
     
-    //FIXME always seems to be unknown
+    //TODO always seems to be unknown
     public var mode: Kernel.GimbalMode { gimbalState.workMode.kernelValue }
     
     public var orientation: Kernel.Orientation3 {
