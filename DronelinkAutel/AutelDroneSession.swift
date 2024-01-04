@@ -926,6 +926,8 @@ extension AutelDroneSession: DroneStateAdapter {
         return nil
     }
     
+    public var obstacleAvoidanceSpecification: Kernel.DroneObstacleAvoidanceSpecification? { nil }
+    
     public var obstacleDistance: Double? { nil } //TODO
     
     public var orientation: Kernel.Orientation3 { mainControllerState?.value.orientation ?? Kernel.Orientation3() }
