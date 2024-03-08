@@ -356,6 +356,7 @@ public class AutelCameraStateAdapter: CameraStateAdapter {
     //TODO N remove when spec is added
     public var videoFrameRateTest: Kernel.CameraVideoFrameRate { .unknown } //TODO
     public var videoResolutionTest: Kernel.CameraVideoResolution { .unknown } //TODO
+    public var videoResolutionFrameRateSpecification: Kernel.CameraVideoResolutionFrameFrameRateSpecification? { nil } //TODO
     public var currentVideoTime: Double? { systemState.currentVideoTime }
     public var exposureMode: Kernel.CameraExposureMode { _exposureMode?.kernelValue ?? .unknown }
     public var exposureCompensation: Kernel.CameraExposureCompensation { exposureParameters?.exposureCompensation.kernelValue ?? .unknown }
