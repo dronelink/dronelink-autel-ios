@@ -291,6 +291,30 @@ public class AutelCameraAdapter: CameraAdapter {
         
         return enumElements.isEmpty ? nil : enumElements
     }
+    
+    public func tupleEnumElements(parameter: String) -> [EnumElementTuple]? {
+        //TODO add Autel/Kernel Video Resolution and FrameRate Enums and test
+//        var tuples: [EnumElementTuple] = []
+//        switch parameter {
+//        case "CameraVideoResolutionFrameRate":
+//            if let videoResolutionAndFrameRates = camera.parameters.supportedCameraVideoResolutionAndFrameRateRange() {
+//                videoResolutionAndFrameRates.forEach { resolutionFrameRate in
+//                    if let resolutionRaw = AUTELCameraVideoResolution(rawValue: resolutionFrameRate[0].uint8Value)?.kernelValue.rawValue
+//                       let frameRateRaw = AUTELCameraVideoResolution(rawValue: resolutionFrameRate[1].uint8Value)?.kernelValue.rawValue {
+//                        tuples.append(
+//                            EnumElementTuple(
+//                            element1: EnumElement(display: Dronelink.shared.formatEnum(name: "CameraVideoResolution", value: resolutionRaw), value: resolutionRaw),
+//                           element2: EnumElement(display: Dronelink.shared.formatEnum(name: "CameraVideoFrameRate", value: frameRateRaw), value: frameRateRaw)))
+//                    }
+//                }
+//            }
+//        default:
+//            return nil
+//        }
+//        
+//        return tuples.isEmpty ? nil : tuples
+        return nil
+    }
 }
 
 public struct AutelCameraFile : CameraFile {
