@@ -894,6 +894,9 @@ extension AutelDroneSession: DroneStateAdapter {
     public var takeoffLocation: CLLocation? { isFlying ? (lastKnownGroundLocation ?? homeLocation) : location }
     public var takeoffAltitude: Double? { nil }
     public var course: Double { mainControllerState?.value.course ?? 0 }
+    public var velocityX: Double { Double(mainControllerState?.value.velocityX ?? 0) }
+    public var velocityY: Double { Double(mainControllerState?.value.velocityY ?? 0) }
+    public var velocityZ: Double { Double(mainControllerState?.value.velocityZ ?? 0) }
     public var horizontalSpeed: Double { mainControllerState?.value.horizontalSpeed ?? 0 }
     public var verticalSpeed: Double { mainControllerState?.value.verticalSpeed ?? 0 }
     public var altitude: Double { Double(mainControllerState?.value.altitude ?? 0) }
