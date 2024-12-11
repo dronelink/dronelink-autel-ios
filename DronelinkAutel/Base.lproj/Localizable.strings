@@ -40,6 +40,8 @@
 "AutelDroneSession.telemetry.unavailable" = "Telemetry Unavailable";
 "AutelDroneSession.createControlSession.execution.engine.unsupported" = "Unsupported execution engine: %@";
 "AutelDroneSessionManager.remoteControllerLinking.unavailable" = "Remote controller is unavailable.";
+"AutelDroneSessionManager.authorization.flyzones.unsupported" = "Retrieving authorization zones is not supported";
+"AutelDroneSessionManager.authorization.flyzone.unlock.unsupported" = "Unlocking authorization fly zones is not supported";
 "AutelDroneAdapter.stopCompassCalibration.unavailable" = "Unable to stop compass calibration";
 "AutelDroneSession+CameraCommand.stop.capture.error" = "Camera still capturing";
 "AutelDroneSession+CameraCommand.start.shoot.photo.no.file" = "Media File Not Created";
