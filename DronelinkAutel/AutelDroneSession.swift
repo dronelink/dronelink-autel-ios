@@ -796,7 +796,7 @@ extension AutelDroneSession: DroneSession {
         case .dronelinkKernel:
             return AutelVirtualStickSession(droneSession: self)
             
-        case .dji:
+        case .dji, .dji2:
             break
         }
         
